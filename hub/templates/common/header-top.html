@@ -1,0 +1,182 @@
+{% load static %}
+<!-- HEADER WRAP -->
+  <div class="header-wrap">
+    <!-- HEADER -->
+    <div class="header grid-limit">
+      <!-- WIDGET SELECTABLES -->
+      <div class="widget-selectables">
+        <!-- WIDGET OPTIONS WRAP -->
+        <div class="widget-options-wrap">
+          <!-- CURRENT OPTION -->
+          <div id="lang-dropdown-trigger" class="current-option">
+             <!-- CURRENT OPTION VALUE -->
+            <div id="lang-dropdown-option-value" class="current-option-value">
+              <img class="widget-option-img" src="{% static 'img/flags/flag-us.png' %}" alt="flag-us">
+              <p class="widget-option-text">English</p>
+            </div>
+            <!-- /CURRENT OPTION VALUE -->
+
+            <!-- ARROW ICON -->
+            <svg class="arrow-icon">
+              <use xlink:href="#svg-arrow"></use>
+            </svg>
+            <!-- /ARROW ICON -->
+          </div>
+          <!-- /CURRENT OPTION -->
+
+          <!-- WIDGET OPTIONS -->
+          <div id="lang-dropdown" class="widget-options small">
+            <!-- WIDGET OPTION -->
+            <div class="widget-option">
+              <img class="widget-option-img" src="{% static 'img/flags/flag-us.png' %}" alt="flag-us">
+              <p class="widget-option-text">English</p>
+            </div>
+            <!-- /WIDGET OPTION -->
+
+            <!-- WIDGET OPTION -->
+            <div class="widget-option">
+              <img class="widget-option-img" src="{% static 'img/flags/flag-us.png' %}" alt="flag-es">
+              <p class="widget-option-text">Spanish</p>
+            </div>
+            <!-- /WIDGET OPTION -->
+
+            <!-- WIDGET OPTION -->
+            <div class="widget-option">
+              <img class="widget-option-img" src="{% static 'img/flags/flag-us.png' %}" alt="flag-fr">
+              <p class="widget-option-text">French</p>
+            </div>
+            <!-- /WIDGET OPTION -->
+
+            <!-- WIDGET OPTION -->
+            <div class="widget-option">
+              <img class="widget-option-img" src="{% static 'img/flags/flag-us.png' %}" alt="flag-jp">
+              <p class="widget-option-text">Japanese</p>
+            </div>
+            <!-- /WIDGET OPTION -->
+          </div>
+          <!-- /WIDGET OPTIONS -->
+        </div>
+        <!-- /WIDGET OPTIONS WRAP -->
+
+      </div>
+      <!-- /WIDGET SELECTABLES -->
+
+      <!-- WIDGET SELECTABLES -->
+      <div class="widget-selectables">
+        <!-- WIDGET OPTIONS WRAP -->
+        <div class="widget-options-wrap">
+          <!-- CURRENT OPTION -->
+          <div id="account-dropdown-trigger" class="current-option">
+            <!-- CURRENT OPTION VALUE -->
+            <div class="current-option-value">
+
+              {% if user.is_authenticated %}
+              <img class="widget-option-img user-avatar micro" src="{% static 'img/users/05.jpg' %}" alt="avatar-01">
+        <p class="widget-option-text">
+          <a style="color: white;" href="/admin/">
+            {{user_name}}
+        </a>
+        </p>
+                          </div>
+                          <!-- /CURRENT OPTION VALUE -->
+
+            <!-- ARROW ICON -->
+            <svg class="arrow-icon">
+              <use xlink:href="#svg-arrow"></use>
+            </svg>
+            <!-- /ARROW ICON -->
+          </div>
+          <!-- /CURRENT OPTION -->
+
+
+
+          <!-- WIDGET OPTIONS -->
+          <div id="account-dropdown" class="widget-options short linkable">
+            <!-- WIDGET OPTION HEADING -->
+            <div class="widget-option-heading blue">
+              <p class="widget-option-text">Content</p>
+            </div>
+            <!-- /WIDGET OPTION HEADING -->
+
+
+
+            <!-- WIDGET OPTION -->
+            <a href="/admin/hub/post/" class="widget-option">
+              <p class="widget-option-text">News</p>
+            </a>
+            <!-- /WIDGET OPTION -->
+
+                        <!-- WIDGET OPTION -->
+            <a href="/admin/hub/fastnews/" class="widget-option">
+              <p class="widget-option-text">Live News</p>
+            </a>
+            <!-- /WIDGET OPTION -->
+
+            <!-- WIDGET OPTION -->
+            <a href="/admin/hub/video/" class="widget-option">
+              <p class="widget-option-text">Videos</p>
+            </a>
+            <!-- /WIDGET OPTION -->
+
+            <!-- WIDGET OPTION -->
+            <a href="/admin/hub/menuitem/" class="widget-option">
+              <p class="widget-option-text">Menu items</p>
+            </a>
+            <!-- /WIDGET OPTION -->
+
+
+            <!-- WIDGET OPTION HEADING -->
+            <div class="widget-option-heading red">
+              <p class="widget-option-text">User setting</p>
+            </div>
+            <!-- /WIDGET OPTION HEADING -->
+
+            <!-- WIDGET OPTION -->
+            <a href="/admin/password_change/" class="widget-option">
+              <p class="widget-option-text">Password change</p>
+            </a>
+            <!-- /WIDGET OPTION -->
+
+          </div>
+          <!-- /WIDGET OPTIONS -->
+        </div>
+        <!-- /WIDGET OPTIONS WRAP -->
+
+
+        <!-- BUTTON -->
+        <a href="/admin/logout/" class="button tiny red log-button">
+            Logout
+            <!-- BUTTON ORNAMENT -->
+            <div class="button-ornament">
+              <!-- ARROW ICON -->
+              <svg class="arrow-icon">
+                <use xlink:href="#svg-arrow"></use>
+              </svg>
+              <!-- /ARROW ICON -->
+            </div>
+            <!-- /BUTTON ORNAMENT -->
+          </a>
+          <!-- /BUTTON -->
+
+
+              {% else %}
+
+                      <p class="widget-option-text">
+          <a style="color: white;" href="admin/login/?next=/">
+            Login
+        </a>
+        </p>
+                        </div>
+             </div>
+
+  </div>
+        {% endif %}
+
+
+
+      </div>
+      <!-- /WIDGET SELECTABLES -->
+    </div>
+    <!-- /HEADER -->
+  </div>
+  <!-- /HEADER WRAP -->

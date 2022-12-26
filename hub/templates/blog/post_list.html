@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="test">
+    {% for post in posts %}
+
+    {{ post.publish_date }}
+    <br/>
+    <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+    <br/>
+    <img src="{{post.image.url}}" alt="Obrazek" width="100"/>
+    <br/>
+    {{ post.text|linebreaksbr }}
+
+    {% endfor %}
+</div>
+{% endblock %}

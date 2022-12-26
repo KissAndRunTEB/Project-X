@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="test">
+        {% if post.publish_date %}
+        <div class="date">
+            {{ post.publish_date }}
+        </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
+            Edytuj
+        </a>
+        {% endif %}
+    <br/>
+    <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+    <br/>
+        <img src="{{post.image.url}}" alt="Obrazek" width="250"/>
+    {{ post.text|linebreaksbr }}
+</div>
+{% endblock %}

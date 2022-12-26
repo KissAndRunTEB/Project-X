@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- style -->
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}"/>
+  <!-- favicon -->
+  <link rel="icon" href="{% static 'img/favicon.ico' %}">
+  <title>Esport Hub | Start</title>
+</head>
+<body>
+
+{% include "common/search-popup.html" %}
+
+{% include "common/mobile-menu.html" %}
+
+{% include "common/header-top.html" %}
+
+{% include "common/navigation.html" %}
+
+  <!-- MOBILE MENU PULL -->
+  <div class="mobile-menu-pull mobile-menu-open">
+    <!-- MENU PULL ICON -->
+    <svg class="menu-pull-icon">
+      <use xlink:href="#svg-menu-pull"></use>
+    </svg>
+    <!-- /MENU PULL ICON -->
+  </div>
+  <!-- /MOBILE MENU PULL -->
+
+
+
+{% block content %}
+{% endblock %}
+
+{% include "common/footer.html" %}
+
+<!-- app bundle -->
+<script src="{% static 'js/app.bundle.min.js' %}"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!-- BANNER SLIDER -->
+<div id="banner-slider-1" class="banner-slider">
+    <!-- SLIDER ITEMS -->
+    <div class="slider-items">
+
+        {% for post in posts|slice:":4" %}
+        <div class="slider-item slider-item-{{ forloop.counter }}">
+            <div class="slider-item-wrap">
+                <!-- POST PREVIEW -->
+                <div class="post-preview huge gaming-news">
+                    <!-- TAG ORNAMENT -->
+                    <a href="/" class="tag-ornament">Gaming news</a>
+                    <!-- /TAG ORNAMENT -->
+
+                    <!-- POST PREVIEW TITLE -->
+                    <a href="post-v1.html" class="post-preview-title">{{ post.title }}</a>
+                    <!-- POST PREVIEW TEXT -->
+                    <p class="post-preview-text">{{ post.text }}</p>
+                    <!-- BUTTON -->
+                    <a href="/" class="button big blue">
+                        Go to the article
+                        <!-- BUTTON ORNAMENT -->
+                        <div class="button-ornament">
+                            <!-- ARROW ICON -->
+                            <svg class="arrow-icon big">
+                                <use xlink:href="#svg-arrow-big"></use>
+                            </svg>
+                            <!-- /ARROW ICON -->
+
+                            <!-- CROSS ICON -->
+                            <svg class="cross-icon big">
+                                <use xlink:href="#svg-cross-big"></use>
+                            </svg>
+                            <!-- /CROSS ICON -->
+                        </div>
+                        <!-- /BUTTON ORNAMENT -->
+                    </a>
+                    <!-- /BUTTON -->
+                </div>
+                <!-- /POST PREVIEW -->
+            </div>
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+    <!-- /SLIDER ITEMS -->
+
+    <!-- BANNER SLIDER ROSTER -->
+    <div class="banner-slider-roster">
+        {% for post in posts|slice:":4" %}
+        <div class="banner-slider-roster-item"></div>
+        {% endfor %}
+
+    </div>
+    <!-- /BANNER SLIDER ROSTER -->
+</div>
+<!-- /BANNER SLIDER -->

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+</head>
+<body>
+Testowy tytuł
+
+{% if user.is_authenticated %}
+<a href="{% url 'post_new' %}">Link</a>
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+Miejsce na stopke
+
+
+</body>
+</html>

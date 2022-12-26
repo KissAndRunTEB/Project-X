@@ -1,0 +1,327 @@
+{% load static %}
+
+<!-- FOOTER TOP WRAP -->
+<div class="footer-top-wrap">
+    <!-- FOOTER TOP -->
+    <div class="footer-top grid-limit">
+        <!-- FOOTER TOP BRAND -->
+        <div class="footer-top-brand">
+            <!-- LOGO -->
+            <div class="logo negative">
+                <!-- LOGO IMG -->
+                <figure class="logo-img">
+                    <img src="{% static 'img/brand/logo.png' %}" alt="Esport Hub">
+                </figure>
+                <!-- /LOGO IMG -->
+            </div>
+            <!-- /LOGO -->
+
+
+            <!-- SOCIAL LINKS -->
+            <div class="social-links">
+                <!-- BUBBLE ORNAMENT -->
+                <a href="https://www.facebook.com/ElderBlood" class="bubble-ornament fb">
+                    <!-- FACEBOOK ICON -->
+                    <svg class="facebook-icon">
+                        <use xlink:href="#svg-facebook"></use>
+                    </svg>
+                    <!-- /FACEBOOK ICON -->
+                </a>
+                <!-- /BUBBLE ORNAMENT -->
+
+                <!-- BUBBLE ORNAMENT -->
+                <a href="https://twitter.com/TeamElderBlood" class="bubble-ornament twt">
+                    <!-- TWITTER ICON -->
+                    <svg class="twitter-icon">
+                        <use xlink:href="#svg-twitter"></use>
+                    </svg>
+                    <!-- /TWITTER ICON -->
+                </a>
+                <!-- /BUBBLE ORNAMENT -->
+
+                <!-- BUBBLE ORNAMENT -->
+                <a href="https://www.instagram.com/teamelderblood/" class="bubble-ornament insta">
+                    <!-- INSTAGRAM ICON -->
+                    <svg class="instagram-icon">
+                        <use xlink:href="#svg-instagram"></use>
+                    </svg>
+                    <!-- /INSTAGRAM ICON -->
+                </a>
+                <!-- /BUBBLE ORNAMENT -->
+
+
+
+                <!-- BUBBLE ORNAMENT -->
+                <a href="#" class="bubble-ornament twitch">
+                    <!-- TWITCH ICON -->
+                    <svg class="twitch-icon">
+                        <use xlink:href="#svg-twitch"></use>
+                    </svg>
+                    <!-- /TWITCH ICON -->
+                </a>
+                <!-- /BUBBLE ORNAMENT -->
+
+                <!-- BUBBLE ORNAMENT -->
+                <a href="#" class="bubble-ornament youtube">
+                    <!-- YOUTUBE ICON -->
+                    <svg class="youtube-icon">
+                        <use xlink:href="#svg-youtube"></use>
+                    </svg>
+                    <!-- /YOUTUBE ICON -->
+                </a>
+                <!-- /BUBBLE ORNAMENT -->
+            </div>
+            <!-- /SOCIAL LINKS -->
+        </div>
+        <!-- /FOOTER TOP BRAND -->
+
+        <!-- LINE SEPARATOR -->
+        <div class="line-separator negative"></div>
+
+        <!-- FOOTER TOP WIDGETS -->
+        <div class="footer-top-widgets grid-4col centered gutter-big">
+            <!-- FOOTER TOP WIDGET -->
+            <div class="footer-top-widget">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap blue negative">
+                    <h2 class="section-title">Esport Hub</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- LINK SECTION -->
+                <div class="link-section">
+                    <!-- LINK LIST -->
+                    <ul class="link-list small v2 negative">
+
+                        {% for menuitem in menu %}
+
+
+                        <!-- LINK LIST ITEM -->
+                        <li class="link-list-item">
+                            <a href="{{ menuitem.link }}">
+                                <!-- ARROW ICON -->
+                                <svg class="arrow-icon medium">
+                                    <use xlink:href="#svg-arrow-medium"></use>
+                                </svg>
+                                <!-- /ARROW ICON -->
+                                {{ menuitem.text }}
+                            </a>
+                        </li>
+                        <!-- /LINK LIST ITEM -->
+
+
+                        {% endfor %}
+
+
+                    </ul>
+                    <!-- /LINK LIST -->
+
+                    <!-- LINK LIST -->
+                    <ul class="link-list small v2 negative">
+
+                        {% for menuitem in menu %}
+
+
+                        <!-- LINK LIST ITEM -->
+                        <li class="link-list-item">
+                            <a href="{{ menuitem.link }}">
+                                <!-- ARROW ICON -->
+                                <svg class="arrow-icon medium">
+                                    <use xlink:href="#svg-arrow-medium"></use>
+                                </svg>
+                                <!-- /ARROW ICON -->
+                                {{ menuitem.text }}
+                            </a>
+                        </li>
+                        <!-- /LINK LIST ITEM -->
+
+
+                        {% endfor %}
+
+                    </ul>
+                    <!-- /LINK LIST -->
+                </div>
+                <!-- /LINK SECTION -->
+            </div>
+            <!-- FOOTER TOP WIDGET -->
+
+            <!-- FOOTER TOP WIDGET -->
+            <div class="footer-top-widget">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap red negative">
+                    <h2 class="section-title">Latest Reviews</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase grid-1col gutter-small">
+
+                                            {% for post in posts %}
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny negative game-review">
+                        <!-- POST PREVIEW IMG WRAP -->
+
+
+                        <a href="{% url 'post_detail' pk=post.pk %}">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{post.image.url}}" alt="post-16">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                                <!-- REVIEW RATING -->
+                                <div class="review-rating">
+                                    <div id="footer-rate-1" class="arc tiny"></div>
+                                </div>
+                                <!-- /REVIEW RATING -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">{{ post.title }}</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="/"
+                                                                          class="post-author">{{ post.author }}</a><span
+                                    class="separator">|</span>{{ post.publish_date }}</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+
+                        {% endfor %}
+
+
+
+
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+            </div>
+            <!-- FOOTER TOP WIDGET -->
+
+            <!-- FOOTER TOP WIDGET -->
+            <div class="footer-top-widget">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap violet negative">
+                    <h2 class="section-title">Latest Posts</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase grid-1col gutter-small">
+
+                                                            {% for post in posts %}
+
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny negative gaming-news">
+                        <!-- POST PREVIEW IMG WRAP -->
+
+
+                        <a href="{% url 'post_detail' pk=post.pk %}">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{post.image.url}}" alt="post-16">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">{{ post.title }}</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="/"
+                                                                          class="post-author">{{ post.author }}</a><span
+                                    class="separator">|</span>{{ post.publish_date }}</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+
+                        {% endfor %}
+
+
+
+                </div>
+                <!-- POST PREVIEW SHOWCASE -->
+            </div>
+            <!-- FOOTER TOP WIDGET -->
+
+            <!-- FOOTER TOP WIDGET -->
+            <div class="footer-top-widget">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap blue-light negative">
+                    <h2 class="section-title">Popular Posts</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase grid-1col gutter-small">
+
+
+                    <!-- /POST PREVIEW -->
+                {% for post in posts %}
+                    <!-- POST PREVIEW -->
+                    <div class="post-preview tiny negative movie-news">
+                        <!-- POST PREVIEW IMG WRAP -->
+
+
+                        <a href="{% url 'post_detail' pk=post.pk %}">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="{{post.image.url}}" alt="post-16">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="post-v2.html" class="post-preview-title">{{ post.title }}</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="/"
+                                                                          class="post-author">{{ post.author }}</a><span
+                                    class="separator">|</span>{{ post.publish_date }}</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+
+                        {% endfor %}
+
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+            </div>
+            <!-- FOOTER TOP WIDGET -->
+
+
+        </div>
+        <!-- /FOOTER TOP WIDGETS -->
+    </div>
+    <!-- /FOOTER TOP -->
+</div>
+<!-- /FOOTER TOP WRAP -->
+
+<!-- FOOTER BOTTOM WRAP -->
+<div class="footer-bottom-wrap">
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom grid-limit">
+        <p class="footer-bottom-text"><span class="brand"><a
+                href="https://www.teamelderblood.com/"></a>Team Elder Blood</a></span><span class="separator">|</span>All
+            Rights Reserved 2023</p>
+        <p class="footer-bottom-text"><a href="/terms/">Terms and Conditions</a><span class="separator">|</span><a
+                href="/privacy-policy/">Privacy Policy</a></p>
+    </div>
+    <!-- /FOOTER BOTTOM -->
+</div>
+<!-- /FOOTER BOTTOM WRAP -->
