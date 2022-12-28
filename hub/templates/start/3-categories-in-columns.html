@@ -1,0 +1,173 @@
+{% load static %}
+
+        <!-- LAYOUT ITEM 1-1-1 -->
+        <div class="layout-item layout-item-1-1-1 padded">
+            <!-- POST PREVIEW SHOWCASE -->
+            <div class="post-preview-showcase">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap blue">
+                    <h2 class="section-title medium">Some category</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase">
+
+                          {% for post in posts|slice:":4" %}
+
+                                      <!-- POST PREVIEW -->
+                    <div class="post-preview gaming-news">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="/">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="media/{{ post.image }}" alt="post-20">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v1.html" class="tag-ornament">Gaming news</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="/" class="post-preview-title">{{ post.title }}</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                                                          class="post-author">{{ post.author }}</a><span
+                                    class="separator">|</span>{{ post.publish_date }}</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                  {% if not forloop.last %}
+                    <!-- LINE SEPARATOR -->
+                    <div class="line-separator"></div>
+                    <!-- /LINE SEPARATOR -->
+                  {% endif %}
+
+                  {% endfor %}
+
+
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+            </div>
+            <!-- /POST PREVIEW SHOWCASE -->
+
+            <!-- POST PREVIEW SHOWCASE -->
+            <div class="post-preview-showcase">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap red">
+                    <h2 class="section-title medium">Other category</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase">
+                          {% for post in posts|slice:":4" %}
+
+                                      <!-- POST PREVIEW -->
+                    <div class="post-preview game-review">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="/">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="media/{{ post.image }}" alt="post-20">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v1.html" class="tag-ornament">Gaming news</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="/" class="post-preview-title">{{ post.title }}</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                                                          class="post-author">{{ post.author }}</a><span
+                                    class="separator">|</span>{{ post.publish_date }}</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                  {% if not forloop.last %}
+                    <!-- LINE SEPARATOR -->
+                    <div class="line-separator"></div>
+                    <!-- /LINE SEPARATOR -->
+                  {% endif %}
+
+                  {% endfor %}
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+            </div>
+            <!-- /POST PREVIEW SHOWCASE -->
+
+            <!-- POST PREVIEW SHOWCASE -->
+            <div class="post-preview-showcase">
+                <!-- SECTION TITLE WRAP -->
+                <div class="section-title-wrap yellow">
+                    <h2 class="section-title medium">third category</h2>
+                    <div class="section-title-separator"></div>
+                </div>
+                <!-- /SECTION TITLE WRAP -->
+
+                <!-- POST PREVIEW SHOWCASE -->
+                <div class="post-preview-showcase">
+                          {% for post in posts|slice:":4" %}
+
+                                      <!-- POST PREVIEW -->
+                    <div class="post-preview geeky-news">
+                        <!-- POST PREVIEW IMG WRAP -->
+                        <a href="/">
+                            <div class="post-preview-img-wrap">
+                                <!-- POST PREVIEW IMG -->
+                                <figure class="post-preview-img liquid">
+                                    <img src="media/{{ post.image }}" alt="post-20">
+                                </figure>
+                                <!-- /POST PREVIEW IMG -->
+                            </div>
+                        </a>
+                        <!-- /POST PREVIEW IMG WRAP -->
+
+                        <!-- TAG ORNAMENT -->
+                        <a href="news-v1.html" class="tag-ornament">Gaming news</a>
+                        <!-- /TAG ORNAMENT -->
+
+                        <!-- POST PREVIEW TITLE -->
+                        <a href="/" class="post-preview-title">{{ post.title }}</a>
+                        <!-- POST AUTHOR INFO -->
+                        <div class="post-author-info-wrap">
+                            <p class="post-author-info small light">By <a href="search-results.html"
+                                                                          class="post-author">{{ post.author }}</a><span
+                                    class="separator">|</span>{{ post.publish_date }}</p>
+                        </div>
+                        <!-- /POST AUTHOR INFO -->
+                    </div>
+                    <!-- /POST PREVIEW -->
+
+                  {% if not forloop.last %}
+                    <!-- LINE SEPARATOR -->
+                    <div class="line-separator"></div>
+                    <!-- /LINE SEPARATOR -->
+                  {% endif %}
+
+                  {% endfor %}
+                </div>
+                <!-- /POST PREVIEW SHOWCASE -->
+            </div>
+            <!-- /POST PREVIEW SHOWCASE -->
+        </div>
+        <!-- /LAYOUT ITEM 1-1-1 -->

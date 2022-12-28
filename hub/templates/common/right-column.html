@@ -110,7 +110,13 @@
             <!-- /POST PREVIEW IMG WRAP -->
 
             <!-- POST PREVIEW TITLE -->
-            <a href="/" class="post-preview-title">{{post.title}}</a>
+            <a href="/" class="post-preview-title">
+
+              {% for tag in post.tags.all %}
+                                        <p href="">#{{ tag }}</p>
+                                        {% endfor %}
+
+              {{post.title}}</a>
             <!-- POST AUTHOR INFO -->
             <div class="post-author-info-wrap">
               <p class="post-author-info small light">By <a href="/" class="post-author">{{post.author}}</a><span class="separator">|</span>{{post.publish_date}}</p>

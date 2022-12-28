@@ -1,13 +1,16 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils import timezone
+from taggit.managers import TaggableManager
 
 
 # Create your models here.
 
 class Post(models.Model):
+    tags = TaggableManager()
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    text = RichTextField()
     create_date = models.DateTimeField(default=timezone.now)
     publish_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
     image = models.ImageField(null=True, blank=True, upload_to='images/', default='images/default.jpg')

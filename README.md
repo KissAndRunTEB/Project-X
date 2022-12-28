@@ -4,5 +4,14 @@ python manage.py runserver
 Migration after adding new model to database
 python manage.py makemigrations
 
+and then 
+python manage.py migrate
+
 You need to install library Pillow
 python -m pip install Pillow
+
+You need to install Ckeditor
+pip3 install django-ckeditor
+
+You need to install Taggit
+pip3 install django-taggit
