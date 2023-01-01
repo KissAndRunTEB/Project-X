@@ -6,7 +6,8 @@ from django.utils import timezone
 from django.views.generic import DetailView, TemplateView
 
 from hub.forms import PostForm
-from hub.models import Post, MenuItem, Video
+from hub.models import Post, MenuItem, Video, Game, Snapshot, DeckEntry, CardVersion, Team, Tournament, Player, Match, \
+    Stream, Streamer, Platform
 
 
 # Images
@@ -49,6 +50,97 @@ def blog(request):
     menu = MenuItem.objects.all().order_by('-order')
 
     return render(request, 'main/blog.html', {'posts': posts, 'menu': menu})
+
+
+def games(request):
+    games_list = Game.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/games.html', {'games': games_list, 'menu': menu})
+
+
+def snapshots(request):
+    snapshot_list = Snapshot.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/snapshots.html', {'snapshots': snapshot_list, 'menu': menu})
+
+
+def deck_entries(request):
+    deck_entry_list = DeckEntry.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/deck-entries.html', {'deck_entries': deck_entry_list, 'menu': menu})
+
+
+def decks(request):
+    decks_list = DeckEntry.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/decks.html', {'decks': decks_list, 'menu': menu})
+
+
+def cards(request):
+    cards_list = DeckEntry.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/cards.html', {'cards': cards_list, 'menu': menu})
+
+
+def card_versions(request):
+    card_versions_list = CardVersion.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/card-versions.html', {'card_versions': card_versions_list, 'menu': menu})
+
+
+def teams(request):
+    team_list = Team.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/teams.html', {'teams': team_list, 'menu': menu})
+
+
+def players(request):
+    players_list = Player.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/players.html', {'players': players_list, 'menu': menu})
+
+
+def tournaments(request):
+    tournaments_list = Tournament.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/tournaments.html', {'tournaments': tournaments_list, 'menu': menu})
+
+
+def matches(request):
+    matches_list = Match.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/matches.html', {'matches': matches_list, 'menu': menu})
+
+
+def streams(request):
+    stream_list = Stream.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/streams.html', {'streams': stream_list, 'menu': menu})
+
+
+def streamers(request):
+    streamer_list = Streamer.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/streamers.html', {'streamers': streamer_list, 'menu': menu})
+
+
+def platforms(request):
+    platform_list = Platform.objects.all().order_by('-publish_date')
+    menu = MenuItem.objects.all().order_by('-order')
+
+    return render(request, 'lists/platforms.html', {'platforms': platform_list, 'menu': menu})
 
 
 def terms(request):
