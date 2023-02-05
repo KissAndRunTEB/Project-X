@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from hub.models import Post, MenuItem, Video, FastNews, Game, Snapshot, DeckEntry, Deck, Card, CardVersion, Tournament, Player, PlayerTournamentEntry, Team, Match, Stream, Streamer, Platform
+from hub.models import Post, MenuItem, Video, FastNews, Game, Snapshot, DeckEntry, Deck, Card, CardVersion, Tournament, \
+    Player, PlayerTournamentEntry, Team, Match, Stream, Streamer, Platform
 
 # Register your models here.
 
@@ -40,6 +41,3 @@ admin.site.register(Streamer)
 admin.site.register(Stream)
 
 admin.site.register(Platform)
-
-
-
