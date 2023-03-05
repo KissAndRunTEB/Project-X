@@ -1,19 +1,23 @@
-Starting up (set it up in Pycharm so you dont have to do it each time)
+Starting up (add to PyCharm configuration to do it from button)
 python manage.py runserver
-
-You need to install library Pillow
-python -m pip install Pillow
-
-You need to install Ckeditor
-pip3 install django-ckeditor
-
-You need to install Taggit
-pip3 install django-taggit
 
 
 ===Each change to database model===
-Migration after adding new model to database
-python manage.py makemigrations
 
-and then 
+# Creates the migrations file.
+python manage.py makemigrations
+# Executes the migrations and updates the database with your model changes.
 python manage.py migrate
+
+
+===Creating new pages (called apps in Wagtail)===
+
+# To do so, run 
+python manage.py startapp HERENAMEOFNEWPAGE
+# for example
+python manage.py startapp newpage
+# to create a new page
+
+Add the new page to INSTALLED_APPS in EsportCenter/settings/base.py.
+
+In some cases it is neccessery to add page of admin panel too.
