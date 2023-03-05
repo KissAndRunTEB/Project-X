@@ -1,0 +1,93 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+<footer id="site-footer" class="dark">
+    <div class="bg-gray-100 dark:bg-gray-900 py-24 pt-44 leading-8">
+        <div class="container">
+            <div class="grid grid-cols-12 gap-y-12 gap-x-7">
+                <div class="col-span-full md:col-span-4 lg:col-span-3">
+
+                    <!-- Widget: Info -->
+                    <div>
+                        <!-- Logo Footer -->
+                        <h5 class="mb-5 mt-[4px] font-bold leading-none">
+                            <img class="mb-[0.875rem]" src="{% static 'assets/img/yt1/youtube-logo.png' %}"
+                                 alt="YouTube Logo">
+                            <span class="block text-1.5xl leading-[0.8em] tracking-tighter text-primary dark:text-white">Team Elder Blood’s</span>
+                            <span class="block text-[34px] tracking-[-0.07em] text-accent">Vigame</span>
+                        </h5>
+                        <!-- Logo Footer / End -->
+                        <p class="mb-11 text-sm leading-6 tracking-tightest">Some text desciption here that descibe Us
+                        </p>
+                        <ul class="flex flex-wrap gap-8">
+                            <li>
+                                <a class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent"
+                                   href="#" title="Facebook">
+                                    <svg class="h-4 w-4" fill="currentColor">
+                                        <use xlink:href="{% static 'assets/img/social-icons.svg#facebook' %}"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent"
+                                   href="#" title="Twitter">
+                                    <svg class="h-4 w-4" fill="currentColor">
+                                        <use xlink:href="{% static 'assets/img/social-icons.svg#twitter' %}"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent"
+                                   href="#" title="Instagram">
+                                    <svg class="h-4 w-4" fill="currentColor">
+                                        <use xlink:href="{% static 'assets/img/social-icons.svg#instagram' %}"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent"
+                                   href="#" title="Youtube">
+                                    <svg class="h-4 w-4" fill="currentColor">
+                                        <use xlink:href="{% static 'assets/img/social-icons.svg#youtube' %}"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Widget: Info / End -->
+
+                </div>
+
+                <div class="col-span-full md:col-span-4 md:col-start-5">
+
+                    <div>
+                        <h4 class="mb-6 pt-[2px] font-heading text-lg font-bold leading-none text-primary dark:text-white md:mb-16">
+                            Links</h4>
+                        <ul class="grid grid-cols-2 gap-x-7 gap-y-3 font-base text-sm font-bold leading-normal">
+                            <li>
+                                <a class="transition-colors text-accent dark:text-accent" href="/">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a class="transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent"
+                                   href="/">
+                                    Other link
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="col-span-full md:col-span-4 md:col-start-9">
+
+                    <div>
+                        <h4 class="mb-4 pt-[2px] font-heading text-lg font-bold leading-none text-primary dark:text-white md:mb-6">
+                            Some category</h4>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,167 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+<div class="header-wrapper bg-accent text-white relative z-30">
+      <header id="site-header" class="text-white absolute inset-x-0 z-20">
+        <div class="container">
+          <nav class="flex min-h-[64px] items-center justify-between py-1 lg:min-h-[90px] lg:py-4">
+            <!-- Logo -->
+            <div>
+              <a href="_yt1-index.html">
+                 <img src="{% static 'images/logo.png' %}" alt="logo" width="400" height="100">
+              </a>
+            </div>
+            <!-- Logo / End -->
+
+            <!-- Navigation (Desktop) -->
+            <ul class="hidden gap-x-7 xl:gap-x-10 text-sm font-bold lg:flex">
+              <li class="">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-left after:scale-x-100" href="_yt1-index.html">
+                  Home
+                </a>
+              </li>
+              <li class="relative [&>.sub-menu]:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:hover:opacity-100">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-blog-grid.html">
+                  News
+                  <svg role="img" class="h-2 w-2 rotate-90 fill-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#arrow-right' %}"></use>
+                  </svg>
+                </a>
+                <ul class="sub-menu invisible absolute z-20 flex w-52 flex-col bg-white dark:bg-gray-800 py-5 text-sm font-bold opacity-0 shadow-2xl transition-all">
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-blog-grid.html">
+                      Blog Grid
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-blog-list.html">
+                      Blog List
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single.html">
+                      Blog Post V1
+
+                    </a>
+
+                  </li>
+                  <li class="px-7 relative [&>.sub-menu]:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:hover:opacity-100">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single-2.html">
+                      Blog Post V2
+
+                      <svg role="img" class="h-2 w-2 fill-primary dark:fill-white">
+                        <use xlink:href="{% static 'assets/img/yt1/sprite.svg#arrow-right' %}"></use>
+                      </svg>
+                    </a>
+
+                    <ul class="sub-menu invisible absolute z-20 flex w-52 flex-col bg-white dark:bg-gray-800 py-5 text-sm font-bold opacity-0 shadow-2xl transition-all left-full -top-5">
+                      <li class="px-7">
+                        <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single.html">
+                          Another Item
+
+                        </a>
+
+                      </li>
+                      <li class="px-7">
+                        <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single-2.html">
+                          Other Level Item
+
+                        </a>
+
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-about.html">
+                  {{ page.body|richtext }}
+                </a>
+              </li>
+              <li class="relative [&>.sub-menu]:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:hover:opacity-100">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-events.html">
+                  Events
+                  <svg role="img" class="h-2 w-2 rotate-90 fill-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#arrow-right' %}"></use>
+                  </svg>
+                </a>
+                <ul class="sub-menu invisible absolute z-20 flex w-52 flex-col bg-white dark:bg-gray-800 py-5 text-sm font-bold opacity-0 shadow-2xl transition-all">
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single-event.html">
+                      Single Event
+
+                    </a>
+
+                  </li>
+                </ul>
+              </li>
+              <li class="">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-partners.html">
+                  Partners
+                </a>
+              </li>
+              <li class="">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-contact.html">
+                  Contact
+                </a>
+              </li>
+
+            </ul>
+            <!-- Navigation (Desktop) / End -->
+
+            <!-- Header Controls -->
+            <div class="flex">
+
+              <div class="flex items-center py-4 px-1 sm:px-2">
+                <label for="theme-toggle" class="relative inline-flex cursor-pointer items-center">
+                  <input type="checkbox" value="" id="theme-toggle" class="peer sr-only">
+                  <span class="relative z-10 block h-6 w-11 rounded-full border-2 border-white after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-[20px]"></span>
+                  <svg role="img" class="pointer-events-none absolute left-[5px] top-1 h-4 w-4 stroke-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#sun' %}"></use>
+                  </svg>
+                  <svg role="img" class="pointer-events-none absolute right-[5px] top-1 h-4 w-4 stroke-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#moon' %}"></use>
+                  </svg>
+                </label>
+              </div>
+
+              <div class="relative [&>.sub-menu]:lg:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:lg:hover:opacity-100">
+                <a class="block py-4 px-2 xl:px-3" href="_yt1-account.html">
+                  <svg role="img" class="h-6 w-6 fill-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#user' %}"></use>
+                  </svg>
+                </a>
+
+                <ul class="sub-menu invisible absolute right-full z-20 -mr-9 flex w-52 origin-top-right flex-col bg-white dark:bg-gray-800 py-5 text-sm font-bold opacity-0 shadow-2xl transition-all">
+                  <li class="px-7">
+                    <a class="flex flex-row-reverse items-center justify-between py-2 text-primary dark:text-white transition-colors hover:text-accent dark:hover:text-accent" href="/">
+                      Login
+                    </a>
+                  </li>
+                  <li class="px-7">
+                    <a class="flex flex-row-reverse items-center justify-between py-2 text-primary dark:text-white transition-colors hover:text-accent dark:hover:text-accent" href="/">
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+
+
+              <button class="js-menu-toggle -mr-2 inline-flex py-4 px-2 sm:px-3 lg:hidden xl:px-4">
+                <svg role="img" class="js-menu-toggle-icon-open h-6 w-6 fill-white">
+                  <use xlink:href="{% static 'assets/img/yt1/sprite.svg#menu' %}"></use>
+                </svg>
+                <svg role="img" class="js-menu-toggle-icon-close hidden h-6 w-6 fill-white">
+                  <use xlink:href="{% static 'assets/img/yt1/sprite.svg#menu-close' %}"></use>
+                </svg>
+              </button>
+
+            </div>
+            <!-- Header Controls / End -->
+
+          </nav>
+        </div>
+      </header>

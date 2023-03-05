@@ -66,6 +66,8 @@ class BlogPageTag(TaggedItemBase):
 
 
 class BlogPage(Page):
+    page_description = "Admin panel helpfull tip"
+
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
