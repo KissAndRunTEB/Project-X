@@ -50,11 +50,544 @@
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
+
 {% wagtailuserbar %}
 <div id="site-wrapper" class="flex flex-col h-full js-site-wrapper">
-    {% include "header.html" %}
+    <div class="header-wrapper bg-accent text-white">
+      <header id="site-header" class="bg-accent text-white">
+        <div class="container">
+          <nav class="flex min-h-[64px] items-center justify-between py-1 lg:min-h-[90px] lg:py-4">
+            <!-- Logo -->
+            <div>
+              <a href="/">
+                <svg width="101" height="22" viewBox="0 0 201 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="fill-white" d="M39.973 37.641C37.407 34.868 36.124 31.315 36.124 26.981C36.124 22.647 37.406 19.085 39.973 16.294C42.537 13.504 45.666 12.108 49.359 12.108C53.052 12.108 55.885 13.478 57.861 16.216V12.42H66.754V41.436H57.86V37.225C55.711 40.276 52.834 41.801 49.228 41.801C45.622 41.801 42.537 40.414 39.973 37.641ZM55.937 32.232C57.219 30.984 57.861 29.214 57.861 26.927C57.861 24.64 57.219 22.88 55.937 21.649C54.654 20.419 53.181 19.803 51.517 19.803C49.853 19.803 48.379 20.427 47.097 21.675C45.814 22.924 45.173 24.691 45.173 26.98C45.173 29.267 45.814 31.027 47.097 32.257C48.379 33.487 49.853 34.103 51.517 34.103C53.181 34.103 54.653 33.48 55.937 32.232Z"></path>
+                  <path class="fill-white" d="M71.433 41.436V2.956H80.325V41.436H71.433Z"></path>
+                  <path class="fill-white" d="M93.896 41.436H85.004V2.956H93.896V24.536L102.892 12.42H114.852L102.425 27.24L114.853 41.435H103.049L93.896 29.84V41.436Z"></path>
+                  <path class="fill-white" d="M123.952 9.144C122.946 10.15 121.717 10.652 120.261 10.652C118.805 10.652 117.573 10.15 116.569 9.144C115.563 8.139 115.061 6.9 115.061 5.426C115.061 3.953 115.563 2.714 116.569 1.708C117.574 0.703 118.805 0.2 120.261 0.2C121.717 0.2 122.947 0.703 123.952 1.708C124.957 2.714 125.46 3.953 125.46 5.426C125.46 6.899 124.957 8.139 123.952 9.144ZM115.841 41.436V12.419H124.733V41.435H115.841V41.436Z"></path>
+                  <path class="fill-white" d="M125.721 12.419H135.185L141.789 34L148.393 12.419H157.857L147.561 41.435H136.017L125.721 12.419Z"></path>
+                  <path class="fill-white" d="M166.956 9.144C165.95 10.15 164.721 10.652 163.265 10.652C161.809 10.652 160.577 10.15 159.573 9.144C158.567 8.139 158.065 6.9 158.065 5.426C158.065 3.953 158.567 2.714 159.573 1.708C160.578 0.703 161.809 0.2 163.265 0.2C164.721 0.2 165.951 0.703 166.956 1.708C167.961 2.714 168.464 3.953 168.464 5.426C168.464 6.899 167.961 8.139 166.956 9.144ZM158.845 41.436V12.419H167.737V41.435H158.845V41.436Z"></path>
+                  <path class="fill-white" d="M174.132 37.641C171.566 34.868 170.283 31.315 170.283 26.981C170.283 22.647 171.565 19.085 174.132 16.294C176.696 13.504 179.825 12.108 183.518 12.108C187.211 12.108 190.044 13.478 192.02 16.216V2.956H200.913V41.436H192.02V37.225C189.871 40.276 186.994 41.801 183.388 41.801C179.782 41.801 176.696 40.414 174.132 37.641ZM190.096 32.232C191.378 30.984 192.02 29.214 192.02 26.927C192.02 24.64 191.378 22.88 190.096 21.649C188.813 20.419 187.34 19.803 185.676 19.803C184.012 19.803 182.538 20.427 181.256 21.675C179.973 22.924 179.332 24.691 179.332 26.98C179.332 29.267 179.973 31.027 181.256 32.257C182.538 33.487 184.012 34.103 185.676 34.103C187.34 34.103 188.813 33.48 190.096 32.232Z"></path>
+                  <path class="fill-white" fill-rule="evenodd" clip-rule="evenodd" d="M17.1 21.184L15.1 34.185L27.1 15.185H21.1L27.463 5.184H37.1L25.1 41.184H13.1L0.100006 5.184H13.1L11.1 21.184H17.1V21.184Z"></path>
+                </svg>
+              </a>
+            </div>
+            <!-- Logo / End -->
 
-        {% block slider %}{% endblock %}
+            <!-- Navigation (Desktop) -->
+            <ul class="hidden gap-x-7 xl:gap-x-10 text-sm font-bold lg:flex">
+              <li class="">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="/">
+                  Home
+                </a>
+              </li>
+              <li class="relative [&>.sub-menu]:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:hover:opacity-100">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-videos-grid-4.html">
+                  Videos
+                  <svg role="img" class="h-2 w-2 rotate-90 fill-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#arrow-right' %}"></use>
+                  </svg>
+                </a>
+                <ul class="sub-menu invisible absolute z-20 flex w-52 flex-col bg-white dark:bg-gray-800 py-5 text-sm font-bold opacity-0 shadow-2xl transition-all">
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-videos-grid-3.html">
+                      Videos - 3 Cols
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-videos-grid-4.html">
+                      Videos - 4 Cols
+
+                    </a>
+
+                  </li>
+                </ul>
+              </li>
+              <li class="relative [&>.sub-menu]:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:hover:opacity-100">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-blog-grid.html">
+                  News
+                  <svg role="img" class="h-2 w-2 rotate-90 fill-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#arrow-right' %}"></use>
+                  </svg>
+                </a>
+                <ul class="sub-menu invisible absolute z-20 flex w-52 flex-col bg-white dark:bg-gray-800 py-5 text-sm font-bold opacity-0 shadow-2xl transition-all">
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-blog-grid.html">
+                      Blog Grid
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-blog-list.html">
+                      Blog List
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single.html">
+                      Blog Post V1
+
+                    </a>
+
+                  </li>
+                  <li class="px-7 relative [&>.sub-menu]:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:hover:opacity-100">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single-2.html">
+                      Blog Post V2
+
+                      <svg role="img" class="h-2 w-2 fill-primary dark:fill-white">
+                        <use xlink:href="{% static 'assets/img/yt1/sprite.svg#arrow-right' %}"></use>
+                      </svg>
+                    </a>
+
+                    <ul class="sub-menu invisible absolute z-20 flex w-52 flex-col bg-white dark:bg-gray-800 py-5 text-sm font-bold opacity-0 shadow-2xl transition-all left-full -top-5">
+                      <li class="px-7">
+                        <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single.html">
+                          Another Item
+
+                        </a>
+
+                      </li>
+                      <li class="px-7">
+                        <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single-2.html">
+                          Other Level Item
+
+                        </a>
+
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-about.html">
+                  About
+                </a>
+              </li>
+              <li class="relative [&>.sub-menu]:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:hover:opacity-100">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="/events/">
+                  Events
+                </a>
+              </li>
+              <li class="">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-partners.html">
+                  Partners
+                </a>
+              </li>
+              <li class="">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-contact.html">
+                  Contact
+                </a>
+              </li>
+              <li class="relative [&>.sub-menu]:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:hover:opacity-100">
+                <a class="relative inline-flex items-center gap-x-2 leading-10 after:absolute after:bottom-[7px] after:left-0 after:h-[2px] after:bg-white after:transition-transform after:w-full after:origin-right hover:after:origin-left after:scale-x-0 hover:after:scale-x-100" href="_yt1-shop-grid-3.html">
+                  Shop
+                  <svg role="img" class="h-2 w-2 rotate-90 fill-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#arrow-right' %}"></use>
+                  </svg>
+                </a>
+                <ul class="sub-menu invisible absolute z-20 flex w-52 flex-col bg-white dark:bg-gray-800 py-5 text-sm font-bold opacity-0 shadow-2xl transition-all">
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-shop-grid-3.html">
+                      Shop V1
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-shop-grid-4.html">
+                      Shop V2
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single-product.html">
+                      Single Product
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-cart.html">
+                      Cart
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-checkout.html">
+                      Checkout
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-login.html">
+                      Login
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-register.html">
+                      Register
+
+                    </a>
+
+                  </li>
+                  <li class="px-7">
+                    <a class="flex items-center justify-between py-2 transition-colors text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-account.html">
+                      Account
+
+                    </a>
+
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!-- Navigation (Desktop) / End -->
+
+            <!-- Header Controls -->
+            <div class="flex">
+
+              <div class="flex items-center py-4 px-1 sm:px-2">
+                <label for="theme-toggle" class="relative inline-flex cursor-pointer items-center">
+                  <input type="checkbox" value="" id="theme-toggle" class="peer sr-only">
+                  <span class="relative z-10 block h-6 w-11 rounded-full border-2 border-white after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-[20px]"></span>
+                  <svg role="img" class="pointer-events-none absolute left-[5px] top-1 h-4 w-4 stroke-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#sun' %}"></use>
+                  </svg>
+                  <svg role="img" class="pointer-events-none absolute right-[5px] top-1 h-4 w-4 stroke-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#moon' %}"></use>
+                  </svg>
+                </label>
+              </div>
+
+              <div class="relative [&>.sub-menu]:lg:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:lg:hover:opacity-100">
+                <a class="block py-4 px-2 xl:px-3" href="_yt1-account.html">
+                  <svg role="img" class="h-6 w-6 fill-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#user' %}"></use>
+                  </svg>
+                </a>
+
+                <ul class="sub-menu invisible absolute right-full z-20 -mr-9 flex w-52 origin-top-right flex-col bg-white dark:bg-gray-800 py-5 text-sm font-bold opacity-0 shadow-2xl transition-all">
+                  <li class="px-7">
+                    <a class="flex flex-row-reverse items-center justify-between py-2 text-primary dark:text-white transition-colors hover:text-accent dark:hover:text-accent" href="_yt1-account-info.html">
+                      Personal Info
+                    </a>
+                  </li>
+                  <li class="px-7">
+                    <a class="flex flex-row-reverse items-center justify-between py-2 text-primary dark:text-white transition-colors hover:text-accent dark:hover:text-accent" href="_yt1-account-billing.html">
+                      Billing Details
+                    </a>
+                  </li>
+                  <li class="px-7">
+                    <a class="flex flex-row-reverse items-center justify-between py-2 text-primary dark:text-white transition-colors hover:text-accent dark:hover:text-accent" href="_yt1-account-shipping.html">
+                      Shipping Details
+                    </a>
+                  </li>
+                  <li class="px-7">
+                    <a class="flex flex-row-reverse items-center justify-between py-2 text-primary dark:text-white transition-colors hover:text-accent dark:hover:text-accent" href="_yt1-account-orders.html">
+                      Orders
+                    </a>
+                  </li>
+                  <li class="px-7">
+                    <a class="flex flex-row-reverse items-center justify-between py-2 text-primary dark:text-white transition-colors hover:text-accent dark:hover:text-accent" href="_yt1-login.html">
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+
+              <div class="relative [&>.sub-menu]:lg:hover:visible [&>.sub-menu]:hover:animate-popper-pop-in [&>.sub-menu]:lg:hover:opacity-100">
+                <a class="relative block py-4 px-1 sm:px-2" href="_yt1-cart.html">
+                  <svg role="img" class="h-6 w-6 fill-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#shopping-basket' %}"></use>
+                  </svg>
+                  <span class="absolute top-1 right-0 block text-3xs font-bold leading-none">4</span>
+                </a>
+
+                <div class="sub-menu invisible absolute right-full z-20 -mr-8 w-[400px] origin-top-right bg-white dark:bg-gray-800 py-7 text-primary dark:text-white opacity-0 shadow-2xl transition-all">
+                  <!-- Products -->
+                  <ul class="flex flex-col gap-y-6 text-sm font-bold">
+                    <li class="flex gap-3 px-7 text-gray-300">
+
+                      <!-- Thumb -->
+                      <figure class="shrink-0">
+                        <a class="group" href="_yt1-single-product.html">
+                          <img class="transition-opacity duration-300 group-hover:opacity-75" src="assets/img/yt1/samples/product-1-50x50.jpg" alt="UNBX Crimson Hoodie">
+                        </a>
+                      </figure>
+                      <!-- Thumb / End -->
+
+                      <!-- Product Body -->
+                      <div class="flex flex-grow flex-col gap-1 leading-tight">
+                        <!-- Category -->
+                        <span class="text-2xs uppercase">Clothing</span>
+                        <!-- Category / End-->
+
+                        <!-- Title -->
+                        <h4>
+                          <a class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single-product.html">
+                            UNBX Crimson Hoodie
+                          </a>
+                          <span class="text-accent">x 2</span>
+                        </h4>
+                        <!-- Title / End -->
+
+                        <div class="relative text-sm leading-none mb-1">
+                          <div class="inline-flex gap-1">
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                          </div>
+                          <div class="absolute left-0 top-0 inline-flex gap-1">
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                          </div>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="text-primary dark:text-white">$52</div>
+                        <!-- Price / End -->
+
+                      </div>
+                      <!-- Product Body / End -->
+
+                      <!-- Remove Product -->
+                      <button class="group -mt-2 -mr-2 flex h-6 w-6 items-center justify-center self-start">
+                        <svg role="img" class="h-2 w-2 fill-primary group-hover:fill-accent dark:fill-white dark:group-hover:fill-accent">
+                          <use xlink:href="{% static 'assets/img/yt1/sprite.svg#close' %}"></use>
+                        </svg>
+                      </button>
+                      <!-- Remove Product / End -->
+
+                    </li>
+                    <li class="flex gap-3 px-7 text-gray-300">
+
+                      <!-- Thumb -->
+                      <figure class="shrink-0">
+                        <a class="group" href="_yt1-single-product.html">
+                          <img class="transition-opacity duration-300 group-hover:opacity-75" src="assets/img/yt1/samples/product-2-50x50.jpg" alt="UNBX White Frame Print">
+                        </a>
+                      </figure>
+                      <!-- Thumb / End -->
+
+                      <!-- Product Body -->
+                      <div class="flex flex-grow flex-col gap-1 leading-tight">
+                        <!-- Category -->
+                        <span class="text-2xs uppercase">Merchandise</span>
+                        <!-- Category / End-->
+
+                        <!-- Title -->
+                        <h4>
+                          <a class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single-product.html">
+                            UNBX White Frame Print
+                          </a>
+                          <span class="text-accent">x 1</span>
+                        </h4>
+                        <!-- Title / End -->
+
+                        <div class="relative text-sm leading-none mb-1">
+                          <div class="inline-flex gap-1">
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                          </div>
+                          <div class="absolute left-0 top-0 inline-flex gap-1">
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                          </div>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="text-primary dark:text-white">$35</div>
+                        <!-- Price / End -->
+
+                      </div>
+                      <!-- Product Body / End -->
+
+                      <!-- Remove Product -->
+                      <button class="group -mt-2 -mr-2 flex h-6 w-6 items-center justify-center self-start">
+                        <svg role="img" class="h-2 w-2 fill-primary group-hover:fill-accent dark:fill-white dark:group-hover:fill-accent">
+                          <use xlink:href="{% static 'assets/img/yt1/sprite.svg#close' %}"></use>
+                        </svg>
+                      </button>
+                      <!-- Remove Product / End -->
+
+                    </li>
+                    <li class="flex gap-3 px-7 text-gray-300">
+
+                      <!-- Thumb -->
+                      <figure class="shrink-0">
+                        <a class="group" href="_yt1-single-product.html">
+                          <img class="transition-opacity duration-300 group-hover:opacity-75" src="assets/img/yt1/samples/product-3-50x50.jpg" alt="UNBX Snapback Cap">
+                        </a>
+                      </figure>
+                      <!-- Thumb / End -->
+
+                      <!-- Product Body -->
+                      <div class="flex flex-grow flex-col gap-1 leading-tight">
+                        <!-- Category -->
+                        <span class="text-2xs uppercase">Clothing</span>
+                        <!-- Category / End-->
+
+                        <!-- Title -->
+                        <h4>
+                          <a class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent" href="_yt1-single-product.html">
+                            UNBX Snapback Cap
+                          </a>
+                          <span class="text-accent">x 1</span>
+                        </h4>
+                        <!-- Title / End -->
+
+                        <div class="relative text-sm leading-none mb-1">
+                          <div class="inline-flex gap-1">
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-gray-200 dark:fill-white/20">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                          </div>
+                          <div class="absolute left-0 top-0 inline-flex gap-1">
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                            <svg role="img" class="h-3 w-3 fill-accent">
+                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#star' %}"></use>
+                            </svg>
+                          </div>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="text-primary dark:text-white">$12</div>
+                        <!-- Price / End -->
+
+                      </div>
+                      <!-- Product Body / End -->
+
+                      <!-- Remove Product -->
+                      <button class="group -mt-2 -mr-2 flex h-6 w-6 items-center justify-center self-start">
+                        <svg role="img" class="h-2 w-2 fill-primary group-hover:fill-accent dark:fill-white dark:group-hover:fill-accent">
+                          <use xlink:href="{% static 'assets/img/yt1/sprite.svg#close' %}"></use>
+                        </svg>
+                      </button>
+                      <!-- Remove Product / End -->
+
+                    </li>
+                  </ul>
+                  <!-- Products / End -->
+
+                  <!-- Total -->
+                  <div class="flex p-7 text-sm font-bold">
+                    <div>Cart Total</div>
+                    <div class="ml-auto"><span class="text-accent">$</span>94.00</div>
+                  </div>
+                  <!-- Total / End-->
+
+                  <!-- Cart Buttons -->
+                  <div class="flex w-full gap-6 px-7">
+                    <a class="flex-shrink-0 flex-grow basis-0 bg-primary py-4 text-center text-sm font-bold leading-4 text-white transition-colors hover:bg-primary/90" href="_yt1-cart.html">Go to Cart</a>
+                    <a class="flex-shrink-0 flex-grow basis-0 bg-accent py-4 text-center text-sm font-bold leading-4 text-white transition-colors hover:bg-accent/90" href="_yt1-checkout.html">Checkout</a>
+                  </div>
+                  <!-- Cart Buttons / End -->
+                </div>
+
+              </div>
+
+              <button class="js-menu-toggle -mr-2 inline-flex py-4 px-2 sm:px-3 lg:hidden xl:px-4">
+                <svg role="img" class="js-menu-toggle-icon-open h-6 w-6 fill-white">
+                  <use xlink:href="{% static 'assets/img/yt1/sprite.svg#menu' %}"></use>
+                </svg>
+                <svg role="img" class="js-menu-toggle-icon-close hidden h-6 w-6 fill-white">
+                  <use xlink:href="{% static 'assets/img/yt1/sprite.svg#menu-close' %}"></use>
+                </svg>
+              </button>
+
+            </div>
+            <!-- Header Controls / End -->
+
+          </nav>
+        </div>
+      </header>
+
+      <div class="page-heading pt-8 pb-12 text-center md:pt-16 md:pb-28">
+        <div class="container">
+          <h1 class="relative mb-3 text-3xl font-bold leading-tight tracking-tight md:text-5xl">{% block name %}{% endblock %}</h1>
+          <ol class="relative flex flex-wrap justify-center divide-x-2 divide-white text-xs font-bold uppercase leading-none">
+            <li class="px-[10px]"><a href="/">Home</a></li>
+            <li class="px-[10px]">{% block breadcrumb %}{% endblock %}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+
 
         {% include "mobile-nav.html" %}
 

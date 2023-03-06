@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+    {% if request.GET.tag %}
+        <h4>Showing pages tagged "{{ request.GET.tag }}"</h4>
+    {% endif %}
+
+    {% for eventspage in eventspages %}
+
+          <p>
+              <strong><a href="{% pageurl eventspage %}">{{ eventspage.title }}</a></strong><br />
+              <small>Revised: {{ eventspage.latest_revision_created_at }}</small><br />
+              {% if eventspage.author %}
+                <p>By {{ eventspage.author.profile }}</p>
+              {% endif %}
+          </p>
+
+    {% empty %}
+        No pages found with that tag.
+    {% endfor %}
+
+{% endblock %}
