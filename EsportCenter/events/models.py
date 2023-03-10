@@ -54,6 +54,10 @@ class EventsIndexPage(Page):
         context = super().get_context(request)
         eventspages = self.get_children().live().order_by('-first_published_at')
         context['eventspages'] = eventspages
+
+
+        featured = self.get_children().live().order_by('-first_published_at')
+        context['featured'] = featured
         return context
 
 
