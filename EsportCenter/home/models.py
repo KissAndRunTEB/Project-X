@@ -16,4 +16,7 @@ class HomePage(Page):
 
         blogpages=self.get_children()[0].get_children().live()
         context['blogpages'] = blogpages
+
+        videos=self.get_children()[3].get_children().live()
+        context['videos'] = videos
         return context

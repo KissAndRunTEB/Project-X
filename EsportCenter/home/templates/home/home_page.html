@@ -82,7 +82,7 @@
 
                         <div class="swiper-wrapper">
 
-                            {% for post in blogpages %}
+                            {% for post in videos %}
 
                             {% with post=post.specific %}
 
@@ -90,7 +90,7 @@
                                 <div>
                                     <figure class="mb-6">
                                         <a class="glightbox group relative block h-full overflow-hidden bg-gray-900"
-                                           href="{% pageurl post %}">
+                                           href="{{ post.link }}">
                                             {% with post.main_image as main_image %}
                                             {% if main_image %}{% image main_image fill-270x152 class="aspect-video w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-75" alt="{{ post.title }}" %}{% endif %}
                                             {% endwith %}
@@ -104,7 +104,7 @@
                                     </figure>
                                     <div>
                                         <h3 class="mb-3 font-bold leading-tight text-primary dark:text-white"><a
-                                                href="{% pageurl post %}">{{ post.title }}</a></h3>
+                                                href="{{ post.link }}">{{ post.title }}</a></h3>
                                         <ul class="flex text-2sm leading-tight tracking-tighter [&>li]:after:mx-1 [&>li:not(:last-child)]:after:content-['-']">
                                             <li>
                                                 734K
@@ -305,7 +305,7 @@
 
                     <div class="swiper-wrapper">
 
-                        {% for post in blogpages %}
+                        {% for post in videos %}
 
                         {% with post=post.specific %}
 
@@ -313,7 +313,7 @@
                             <div>
                                 <figure class="mb-6">
                                     <a class="glightbox group relative block h-full overflow-hidden bg-gray-900"
-                                       href="{% pageurl post %}">
+                                       href="{{ post.link }}">
                                         {% with post.main_image as main_image %}
                                         {% if main_image %}{% image main_image fill-370x208 class="aspect-video w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-75" alt="{{ post.title }}" %}{% endif %}
                                         {% endwith %}
@@ -327,7 +327,7 @@
                                 </figure>
                                 <div>
                                     <h3 class="mb-3 font-bold leading-tight text-primary dark:text-white"><a
-                                            href="{% pageurl post %}">{{ post.title }}</a></h3>
+                                            href="{{ post.link }}">{{ post.title }}</a></h3>
                                     <ul class="flex text-2sm leading-tight tracking-tighter [&>li]:after:mx-1 [&>li:not(:last-child)]:after:content-['-']">
                                         <li>
                                             734K
@@ -381,7 +381,7 @@
 
                     <div class="swiper-wrapper">
 
-                                                {% for post in blogpages %}
+                                                {% for post in videos %}
 
                         {% with post=post.specific %}
 
@@ -389,7 +389,7 @@
                             <div>
                                 <figure class="mb-6">
                                     <a class="glightbox group relative block h-full overflow-hidden bg-gray-900"
-                                       href="{% pageurl post %}">
+                                       href="{{ post.link }}">
                                         {% with post.main_image as main_image %}
                                         {% if main_image %}{% image main_image fill-370x208 class="aspect-video w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-75" alt="{{ post.title }}" %}{% endif %}
                                         {% endwith %}
@@ -403,7 +403,7 @@
                                 </figure>
                                 <div>
                                     <h3 class="mb-3 font-bold leading-tight text-primary dark:text-white"><a
-                                            href="{% pageurl post %}">{{ post.title }}</a></h3>
+                                            href="{{ post.link }}">{{ post.title }}</a></h3>
                                     <ul class="flex text-2sm leading-tight tracking-tighter [&>li]:after:mx-1 [&>li:not(:last-child)]:after:content-['-']">
                                         <li>
                                             734K

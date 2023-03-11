@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+    {% if request.GET.tag %}
+        <h4>Showing pages tagged "{{ request.GET.tag }}"</h4>
+    {% endif %}
+
+    {% for videospage in videospages %}
+
+          <p>
+              <strong><a href="{% pageurl videospage %}">{{ videospage.title }}</a></strong><br />
+              <small>Revised: {{ videospage.latest_revision_created_at }}</small><br />
+              {% if videospage.author %}
+                <p>By {{ videospage.author.profile }}</p>
+              {% endif %}
+          </p>
+
+    {% empty %}
+        No pages found with that tag.
+    {% endfor %}
+
+{% endblock %}
