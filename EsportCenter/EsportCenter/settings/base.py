@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "blog",
     "events",
     "videos",
+    "custom",
     "search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
