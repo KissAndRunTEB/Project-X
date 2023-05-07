@@ -52,12 +52,15 @@ class EventsIndexPage(Page):
     def get_context(self, request):
         # Update context to include only published posts, ordered by reverse-chron
         context = super().get_context(request)
+
+        category_obj = EventsCategory.objects.get(name="Featured")
+
         eventspages = self.get_children().live().order_by('-first_published_at')
         context['eventspages'] = eventspages
 
 
-        featured = self.get_children().live().order_by('-first_published_at')
-        context['featured'] = featured
+        # featured = self.get_children().live().order_by('-first_published_at')
+        # context['featured'] = featured
         return context
 
 
