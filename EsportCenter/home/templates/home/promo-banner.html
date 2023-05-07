@@ -1,0 +1,30 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+<div class="relative isolate -mb-20">
+    <div class="container">
+        <div class="relative grid grid-cols-12 gap-x-7 bg-accent text-white">
+            <div class="col-span-full flex flex-col justify-center gap-y-4 py-8 px-5 md:col-span-5 md:gap-y-6 md:py-10 md:px-0 lg:col-span-5 lg:py-0 xl:col-span-3">
+                <div class="uppercase tracking-tighter">Spotlight</div>
+                <div class="text-4xl font-bold tracking-tight md:mb-5 md:text-5xl md:leading-[0.9em]">
+                    Check this out!
+                </div>
+            </div>
+            <div class="col-span-full md:col-start-8 md:mr-[-1px] lg:col-start-8 xl:col-start-8">
+                <a href="https://www.youtube.com/watch?v=yAz_oUAKyYI"
+                   class="glightbox group relative block h-full overflow-hidden bg-gray-900 md:-ml-7">
+                    <img class="h-full w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-75"
+                         src="{% static 'assets/img/yt1/samples/spotlight-cover.jpg' %}" alt="">
+                    <span class="absolute top-1/2 left-1/2 flex aspect-square w-[60px] -translate-x-2/4 -translate-y-2/4 items-center justify-center rounded-full bg-accent">
+                <svg role="img" class="mr-[-3px] h-[22px] w-[18px] fill-white">
+                  <use xlink:href="{% static 'assets/img/yt1/sprite.svg#play' %}"></use>
+                </svg>
+              </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- left accent layer -->
+    <div class="absolute right-1/2 bottom-0 -z-10 h-full w-1/2 bg-accent"></div>
+</div>

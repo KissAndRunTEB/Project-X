@@ -21,3 +21,6 @@ python manage.py startapp newpage
 Add the new page to INSTALLED_APPS in EsportCenter/settings/base.py.
 
 In some cases it is neccessery to add page of admin panel too.
+
+To update libraries:
+pip install -r requirements.txt     
