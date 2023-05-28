@@ -12,7 +12,6 @@ from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 
 
-
 @register_snippet
 class BlogCategory(models.Model):
     name = models.CharField(max_length=255)
@@ -53,20 +52,24 @@ class BlogIndexPage(Page):
         # Update context to include only published posts, ordered by reverse-chron
         context = super().get_context(request)
 
-
         blogpages = self.get_children().live().order_by('-first_published_at')
         context['blogpages'] = blogpages
 
         category_id = request.GET.get('category')
 
-        # if category_id is not None:
-        #     category = []
-        #     category.append(BlogCategory.objects.get(id=category_id))
-        #     context['blogpages'] =  self.get_children().filter(
-        #         live=True,
-        #         categories=category,
-        #     ).order_by('-first_published_at')
+        if category_id is not None:
+            # category = []
+            # category.append(BlogCategory.objects.get(id=category_id))
+            # context['blogpages'] =  self.get_children().filter(
+            #     live=True,
+            #     categories=category
+            #     categories=category
+            # ).order_by('-first_published_at')
+            # Filter by tag
+            tag = request.GET.get('tag')
+            blogpages = BlogPage.objects.filter(live=True, categories=category_id)
 
+            context['blogpages'] = blogpages
 
         categories = BlogCategory.objects.all()
         context['categories'] = categories

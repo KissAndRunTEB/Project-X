@@ -24,54 +24,14 @@ Blog
                 <header class="col-span-full mb-4 flex flex-col items-center gap-y-6 md:col-start-3 md:col-end-11 md:mb-6">
                     <a class="bg-accent px-3 py-1 text-xs font-bold uppercase leading-snug text-white transition-colors hover:bg-accent/90 md:text-sm"
                        href="#">
-                        Some category
+                        {{ page.date }}
                     </a>
                     <h1 class="pb-1 text-center text-2xl font-bold leading-tight tracking-tighter text-primary dark:text-white md:text-3xl lg:px-8 lg:text-5xl lg:leading-none">
                         {{ page.title }}
                     </h1>
 
-                    <ul class="mb-4 flex flex-wrap justify-center divide-x divide-accent pt-1 text-xs leading-none tracking-tight md:mb-7 md:text-base">
-                        <li class="px-2 leading-none first:pl-0">{{ page.date }}</li>
-                        <li class="px-2 leading-none">Author nick</li>
-                        <li class="px-2 leading-none last:pr-0">3 Comments</li>
-                    </ul>
-
                 </header>
 
-                <div class="col-span-full mb-10 md:col-start-3 md:col-end-11 lg:col-start-4 lg:col-end-10 md:mb-20">
-                    <ul class="flex gap-4 md:gap-7 flex-wrap w-full">
-                        <li class="flex-1">
-                            <a href=""
-                               class="relative flex items-center justify-center py-4 px-4 text-xs font-bold uppercase leading-none text-white transition-colors bg-social-facebook hover:bg-social-facebook/90">
-                                <svg class="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 sm:left-4 sm:translate-x-0"
-                                     fill="currentColor">
-                                    <use xlink:href="{% static 'assets/img/social-icons.svg#facebook' %}"></use>
-                                </svg>
-                                <span class="hidden sm:inline">Facebook</span>
-                            </a>
-                        </li>
-                        <li class="flex-1">
-                            <a href=""
-                               class="relative flex items-center justify-center py-4 px-4 text-xs font-bold uppercase leading-none text-white transition-colors bg-social-twitter hover:bg-social-twitter/90">
-                                <svg class="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 sm:left-4 sm:translate-x-0"
-                                     fill="currentColor">
-                                    <use xlink:href="{% static 'assets/img/social-icons.svg#twitter' %}"></use>
-                                </svg>
-                                <span class="hidden sm:inline">Twitter</span>
-                            </a>
-                        </li>
-                        <li class="flex-1">
-                            <a href=""
-                               class="relative flex items-center justify-center py-4 px-4 text-xs font-bold uppercase leading-none text-white transition-colors bg-primary hover:bg-primary/90">
-                                <svg class="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 sm:left-4 sm:translate-x-0"
-                                     fill="currentColor">
-                                    <use xlink:href="{% static 'assets/img/social-icons.svg#envelope-fill' %}"></use>
-                                </svg>
-                                <span class="hidden sm:inline">Share</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
 
                 <figure class="col-span-full mb-8 md:col-start-2 md:col-end-12 md:mb-14">
                     <a class="group relative block h-full overflow-hidden bg-gray-900" href="#">
@@ -100,8 +60,9 @@ Blog
                         <div class="tags">
                             <h3>Tags</h3>
                             {% for tag in tags %}
-                            <a href="{% slugurl 'tags' %}?tag={{ tag }}">
-                                <button type="button">{{ tag }}</button>
+                            <a class="transition-colors text-accent dark:text-accent"
+                               href="{% slugurl 'tags' %}?tag={{ tag }}">
+                                {{ tag }}
                             </a>
                             {% endfor %}
                         </div>
@@ -114,57 +75,6 @@ Blog
                             <p>{{ item.caption }}</p>
                         </div>
                         {% endfor %}
-
-                    </div>
-                </div>
-
-                <div class="relative flex gap-x-6 bg-gray-100 py-8 leading-8 after:absolute after:inset-y-0 after:-left-1/2 after:w-1/2 after:bg-gray-100 dark:bg-gray-800 dark:after:bg-gray-800 md:py-[70px] md:text-lg lg:gap-x-9 col-span-full md:col-start-2 mb-20 d:col-end-12 lg:px-[100px] md:px-[66px] md:mb-28 lg:mb-40">
-                    <figure class="shrink-0">
-                        <img src="{% static 'assets/img/yt1/samples/user-1-80x80.jpg' %}" alt="Author Avatar">
-                    </figure>
-
-                    <div class="flex-grow">
-
-                        <div class="mb-6 flex flex-wrap justify-between gap-4">
-                            <div>
-                                <h5 class="mb-2 text-1.5xl font-bold leading-none text-primary dark:text-white">Some author</h5>
-                                <div class="text-base">Post Author</div>
-                            </div>
-                            <ul class="flex flex-wrap gap-4 md:gap-8">
-                                <li>
-                                    <a class="white text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent"
-                                       href="#" title="Facebook">
-                                        <svg class="h-4 w-4" fill="currentColor">
-                                            <use xlink:href="{% static 'assets/img/social-icons.svg#facebook' %}"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="white text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent"
-                                       href="#" title="Twitter">
-                                        <svg class="h-4 w-4" fill="currentColor">
-                                            <use xlink:href="{% static 'assets/img/social-icons.svg#twitter' %}"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="white text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent"
-                                       href="#" title="Instagram">
-                                        <svg class="h-4 w-4" fill="currentColor">
-                                            <use xlink:href="{% static 'assets/img/social-icons.svg#instagram' %}"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="white text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent"
-                                       href="#" title="Youtube">
-                                        <svg class="h-4 w-4" fill="currentColor">
-                                            <use xlink:href="{% static 'assets/img/social-icons.svg#youtube' %}"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
 
                     </div>
                 </div>

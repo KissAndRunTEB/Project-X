@@ -1,24 +1,80 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}antialiased tracking-tight font-base text-gray-500 text-base h-full bg-white dark:bg-gray-900 overflow-x-hidden{% endblock %}
+{% block name %}
+Tag: {{ request.GET.tag }}
+{% endblock%}
+
+{% block breadcrumb %}
+Tag: {{ request.GET.tag }}
+{% endblock%}
 
 {% block content %}
 
-    {% if request.GET.tag %}
-        <h4>Showing pages tagged "{{ request.GET.tag }}"</h4>
-    {% endif %}
 
-    {% for blogpage in blogpages %}
+<main id="main-content" class="grow lg:pt-0">
 
-          <p>
-              <strong><a href="{% pageurl blogpage %}">{{ blogpage.title }}</a></strong><br />
-              <small>Revised: {{ blogpage.latest_revision_created_at }}</small><br />
-              {% if blogpage.author %}
+    <section class="pt-14 pb-24 lg:pb-52 lg:pt-40">
+
+
+        <div class="container">
+
+
+                 <h3 class="mb-6 text-2xl font-bold leading-none tracking-tight text-primary dark:text-white lg:mb-24 lg:text-5xl">
+            {% if request.GET.tag %}
+            Showing news tagged "{{ request.GET.tag }}"
+            {% endif %}
+        </h3>
+
+
+            <div class="grid grid-cols-12 gap-y-7 sm:gap-[30px]">
+
+                {% for post in blogpages %}
+
+                {% with post=post.specific %}
+
+                <div class="col-span-full sm:col-span-6 lg:col-span-4">
+                    <figure class="group overflow-hidden bg-gray-900">
+                        <a href="{% pageurl post %}">
+
+                            {% with post.main_image as main_image %}
+                            {% if main_image %}{% image main_image fill-370x240 %}{% endif %}
+                            {% endwith %}
+                        </a>
+                    </figure>
+                    <div class="relative -mt-20 mr-8 lg:mr-10">
+                        <div class="inline-flex bg-accent px-2 py-[6px] text-xs font-bold uppercase leading-none text-white">
+                            {{ post.category }}
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-6">
+                            <h2 class="mb-4 text-xl font-bold leading-6 lg:tracking-tighter">
+                                <a href="{% pageurl post %}"
+                                   class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent">
+                                    {{ post.title }}
+                                </a>
+                            </h2>
+                            <div class="text-sm">{{ post.date }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                {% if blogpage.author %}
                 <p>By {{ blogpage.author.profile }}</p>
-              {% endif %}
-          </p>
+                {% endif %}
 
-    {% empty %}
-        No pages found with that tag.
-    {% endfor %}
+                {% endwith %}
+                {% empty %}
+                No pages found with that tag.
+                {% endfor %}
+
+
+            </div>
+
+
+        </div>
+    </section>
+</main>
 
 {% endblock %}
+
