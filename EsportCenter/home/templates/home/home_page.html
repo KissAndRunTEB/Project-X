@@ -430,79 +430,6 @@
 
     </section>
 
-    <section class="py-14 pb-7 md:py-32 md:pb-16 lg:py-44 lg:pb-20 xl:py-48 xl:pb-24">
-        <div class="container">
-            <div class="mb-12 flex flex-col flex-wrap gap-y-6 sm:mb-16 md:mb-20 lg:mb-24 xl:mb-28 xl:gap-y-12 justify-center items-center">
-                <div class="flex flex-col-reverse gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5 xl:gap-y-6 items-center">
-                    <h2 class="leadin-none text-3xl font-bold tracking-tight text-primary dark:text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-6.5xl xl:leading-none">
-                        Featured Playlists</h2>
-                    <div class="text-sm uppercase leading-tighter md:text-base">Some text</div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="swiper js-vv-playlist-swiper aspect-square sm:aspect-[5/3] md:aspect-[5/3] lg:aspect-[2/1] xl:aspect-[5/2] mb-6 md:mb-10 lg:mb-16 xl:mb-24">
-
-            <div class="swiper-wrapper">
-                                                   {% for post in blogpages.all|slice:"0:5" %}
-
-                        {% with post=post.specific %}
-
-                                <div class="swiper-slide group">
-                    <a class="flex h-full" href="{% pageurl post %}">
-
-                        {% with post.main_image as main_image %}
-                                        {% if main_image %}{% image main_image fill-430x600 class="w-full h-full object-cover" alt="{{ post.title }}" %}{% endif %}
-                                        {% endwith %}
-
-                        <div class="absolute left-7 w-1/2 md:w-1/2 lg:w-2/5 xl:w-1/3 bottom-6 z-10 text-white">
-                            <h3 class="text-1.5xl font-bold leading-tighter mb-2">{{ post.title }}</h3>
-                            <div class="text-sm leading-tight">44 videos</div>
-                        </div>
-
-                        <div class="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-gray-900/90 to-transparent transition-all opacity-100 group-hover:opacity-0"></div>
-                        <div class="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-accent/90 to-transparent transition-all opacity-0 group-hover:opacity-100 scale-y-0 group-hover:scale-y-100 origin-bottom duration-200"></div>
-                    </a>
-                </div>
-
-
-
-                        {% endwith %}
-                        {% endfor %}
-
-
-            </div>
-
-        </div>
-
-        <div class="container">
-            <div class="flex flex-wrap items-center justify-between">
-                <div class="inline-flex items-center gap-x-3 text-xs font-bold uppercase text-primary md:text-sm">
-              <span class="relative inline-flex h-[18px] w-[18px] items-center justify-center rounded-full border-2 border-primary dark:border-white">
-                <svg role="img" class="h-[8px] w-[8px] fill-primary dark:fill-white">
-                  <use xlink:href="{% static 'assets/img/yt1/sprite.svg#chevron-right' %}"></use>
-                </svg>
-              </span>
-                    <a class="text-primary hover:text-accent dark:text-white dark:hover:text-accent" href="#">Browse all
-                        playlists</a>
-                </div>
-                <div class="flex">
-                    <div class="vv-playlist-swiper-btn-prev flex h-[60px] w-[50px] items-center justify-center bg-white text-primary hover:cursor-pointer hover:text-accent dark:bg-gray-900 dark:text-white dark:hover:text-accent">
-                        <svg class="h-2 w-2" fill="currentColor">
-                            <use xlink:href="{% static 'assets/img/yt1/sprite.svg#chevron-left' %}"></use>
-                        </svg>
-                    </div>
-                    <div class="vv-playlist-swiper-btn-next flex h-[60px] w-[50px] items-center justify-center bg-white text-primary hover:cursor-pointer hover:text-accent dark:bg-gray-900 dark:text-white dark:hover:text-accent">
-                        <svg class="h-2 w-2" fill="currentColor">
-                            <use xlink:href="{% static 'assets/img/yt1/sprite.svg#chevron-right' %}"></use>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
 
     <section class="py-14 md:py-32 lg:py-44 xl:py-48">
         <div class="container">
@@ -511,7 +438,7 @@
                 <div class="flex flex-col-reverse gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5 xl:gap-y-6">
                     <h2 class="leadin-none text-3xl font-bold tracking-tight text-primary dark:text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-6.5xl xl:leading-none">
                         Latest News</h2>
-                    <div class="text-sm uppercase leading-tighter md:text-base">some tag</div>
+                    <div class="text-sm uppercase leading-tighter md:text-base">gaming stories</div>
                 </div>
 
                 <div class="inline-flex items-center gap-x-3 text-xs font-bold uppercase text-primary md:text-sm">
@@ -521,7 +448,7 @@
                   </svg>
                 </span>
                     <a class="text-primary hover:text-accent dark:text-white dark:hover:text-accent"
-                       href="/">Browse all posts</a>
+                       href="/blog/">Browse all posts</a>
                 </div>
             </div>
 
@@ -572,6 +499,9 @@
 </main>
 
      {% include "home/promo-banner.html" %}
+
+
+     {% include "home/to-add.html" %}
 
 
 {% endblock %}
