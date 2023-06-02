@@ -77,56 +77,7 @@
             <div class="relative z-30 -mt-20 flex flex-col py-10 md:flex-row md:justify-between lg:-mt-[180px]">
 
                 <div class="relative">
-
-                    <div class="swiper js-vv-videos-featured-swiper md:w-[1236px] lg:w-[1278px] xl:w-[2068px]">
-
-                        <div class="swiper-wrapper">
-
-                            {% for post in videos %}
-
-                            {% with post=post.specific %}
-
-                            <div class="swiper-slide">
-                                <div>
-                                    <figure class="mb-6">
-                                        <a class="glightbox group relative block h-full overflow-hidden bg-gray-900"
-                                           href="{{ post.link }}">
-                                            {% with post.main_image as main_image %}
-                                            {% if main_image %}{% image main_image fill-270x152 class="aspect-video w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-75" alt="{{ post.title }}" %}{% endif %}
-                                            {% endwith %}
-
-                                            <span class="absolute top-1/2 left-1/2 flex aspect-square w-10 -translate-x-2/4 -translate-y-2/4 items-center justify-center rounded-full bg-accent">
-                              <svg role="img" class="ml-[2px] h-4 w-3 fill-white">
-                                <use xlink:href="{% static 'assets/img/yt1/sprite.svg#play' %}"></use>
-                              </svg>
-                            </span>
-                                        </a>
-                                    </figure>
-                                    <div>
-                                        <h3 class="mb-3 font-bold leading-tight text-primary dark:text-white"><a
-                                                href="{{ post.link }}">{{ post.title }}</a></h3>
-                                        <ul class="flex text-2sm leading-tight tracking-tighter [&>li]:after:mx-1 [&>li:not(:last-child)]:after:content-['-']">
-                                            <li>
-                                                734K
-                                                views
-                                            </li>
-                                            <li>
-                                                6 hours ago
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            {% endwith %}
-                            {% endfor %}
-
-
-                        </div>
-
-                    </div>
-
+                    {% include "home/videos-below-slider.html" %}
                 </div>
 
                 <div class="absolute left-0 -top-[10px] z-10 min-[1330px]:-left-20 min-[1330px]:translate-x-0">
@@ -151,125 +102,8 @@
         </div>
     </section>
 
-    <section class="py-14 md:py-32 lg:py-44 xl:py-48">
-        <div class="container">
-            <div class="grid grid-cols-12 gap-y-12 md:gap-x-[30px]">
+    {% include "home/podcast-info.html" %}
 
-                <div class="col-span-full md:col-span-8">
-
-                    <div class="swiper js-vv-channel-info-swiper aspect-[770/580] w-full sm:aspect-[770/520]">
-
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="relative isolate flex h-full">
-                                    <img class="absolute top-0 right-0 h-auto max-w-full"
-                                         src="{% static 'assets/img/yt1/samples/info-slide-1.png' %}"
-                                         alt="Gaming Unboxing" data-swiper-parallax="-250">
-
-                                    <div class="absolute left-4 bottom-4 max-w-[150px] font-bold uppercase leading-none tracking-tighter text-white sm:text-lg sm:leading-none md:left-6 md:bottom-5 md:text-xl md:leading-none lg:text-2xl lg:leading-none"
-                                         data-swiper-parallax="-100" data-swiper-parallax-duration="1100">Gaming
-                                        Unboxing
-                                    </div>
-
-                                    <div class="absolute left-0 bottom-0 -z-10 aspect-[1.1] w-2/3 bg-accent sm:aspect-[0.83] sm:w-[52%]"></div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="relative isolate flex h-full">
-                                    <img class="absolute top-0 right-0 h-auto max-w-full"
-                                         src="{% static 'assets/img/yt1/samples/info-slide-2.png' %}"
-                                         alt="Toys Unboxing" data-swiper-parallax="-250">
-
-                                    <div class="absolute left-4 bottom-4 max-w-[150px] font-bold uppercase leading-none tracking-tighter text-white sm:text-lg sm:leading-none md:left-6 md:bottom-5 md:text-xl md:leading-none lg:text-2xl lg:leading-none"
-                                         data-swiper-parallax="-100" data-swiper-parallax-duration="1100">Toys Unboxing
-                                    </div>
-
-                                    <div class="absolute left-0 bottom-0 -z-10 aspect-[1.1] w-2/3 bg-accent sm:aspect-[0.83] sm:w-[52%]"></div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="relative isolate flex h-full">
-                                    <img class="absolute top-0 right-0 h-auto max-w-full"
-                                         src="{% static 'assets/img/yt1/samples/info-slide-3.png' %}"
-                                         alt="Tech &amp; Gadgets Unboxing" data-swiper-parallax="-250">
-
-                                    <div class="absolute left-4 bottom-4 max-w-[150px] font-bold uppercase leading-none tracking-tighter text-white sm:text-lg sm:leading-none md:left-6 md:bottom-5 md:text-xl md:leading-none lg:text-2xl lg:leading-none"
-                                         data-swiper-parallax="-100" data-swiper-parallax-duration="1100">Tech &amp;
-                                        Gadgets Unboxing
-                                    </div>
-
-                                    <div class="absolute left-0 bottom-0 -z-10 aspect-[1.1] w-2/3 bg-accent sm:aspect-[0.83] sm:w-[52%]"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="absolute bottom-[8%] right-0 z-20 flex items-center sm:right-auto sm:left-[58%]">
-                            <div class="js-vv-channel-info-swiper-btn-prev flex h-10 w-10 items-center justify-center text-primary hover:cursor-pointer hover:text-accent dark:text-white dark:hover:text-accent">
-                                <svg class="h-3 w-3" fill="currentColor">
-                                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#chevron-left' %}"></use>
-                                </svg>
-                            </div>
-                            <div class="vv-channel-info-swiper-pagination js-vv-channel-info-swiper-pagination group hidden justify-center gap-3 sm:flex"></div>
-                            <div class="js-vv-channel-info-swiper-btn-next flex h-10 w-10 items-center justify-center text-primary hover:cursor-pointer hover:text-accent dark:text-white dark:hover:text-accent">
-                                <svg class="h-3 w-3" fill="currentColor">
-                                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#chevron-right' %}"></use>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-white to-transparent dark:from-gray-900 md:w-8"></div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-span-full md:col-span-4 xl:-ml-[30px]">
-                    <div class="mb-4 flex flex-wrap items-end justify-between gap-y-6 sm:mb-5 sm:flex-row md:mb-6 lg:mb-8 xl:mb-12 xl:gap-y-12">
-                        <div class="flex flex-col-reverse gap-y-1 lg:gap-y-2 xl:gap-y-3">
-                            <h3 class="leadin-none text-2xl font-bold tracking-tight text-primary dark:text-white sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl xl:leading-none">
-                                Every Friday<br> at 9PM</h3>
-                            <div class="leading-tighter text-primary dark:text-white lg:text-2xl">New Videos!</div>
-                        </div>
-                    </div>
-
-                    <div class="pt-1 lg:text-lg lg:leading-8">
-
-                        <div class="mb-6 md:mb-8 lg:mb-10 xl:mb-12">
-                            <div class="mb-7 flex gap-4">
-                                <a class="group flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-accent md:mt-2"
-                                   href="#">
-                                    <svg role="img"
-                                         class="h-6 w-6 fill-white will-change-transform group-hover:animate-ring">
-                                        <use xlink:href="{% static 'assets/img/yt1/sprite.svg#bell' %}"></use>
-                                    </svg>
-                                </a>
-                                <div class="flex-1">
-                                    Remember to
-                                    <a href="#"
-                                       class="font-bold text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent">turn
-                                        on the notifications bell</a>
-                                    so you’ll be informed when a new video is uploaded!
-                                </div>
-                            </div>
-                            <p>We really appreaciate all your comments, likes and suggestions,
-                                so keep em coming!</p>
-                        </div>
-
-                        <a class="inline-flex items-center gap-x-3 text-xs font-bold uppercase text-primary md:text-sm"
-                           href="#">
-                  <span class="relative inline-flex h-[18px] w-[18px] items-center justify-center rounded-full border-2 border-primary dark:border-white">
-                    <svg role="img" class="h-[8px] w-[8px] fill-primary dark:fill-white">
-                      <use xlink:href="{% static 'assets/img/yt1/sprite.svg#chevron-right' %}"></use>
-                    </svg>
-                  </span>
-                            <span class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent">See All Videos</span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="md:pb-6 lg:pb-8 xl:pb-10">
 
@@ -299,56 +133,7 @@
                     </div>
                 </div>
 
-                <div class="swiper js-vv-latest-videos-swiper md:w-[1106px] lg:w-[1278px] xl:w-[1970px]">
-
-
-
-                    <div class="swiper-wrapper">
-
-                        {% for post in videos %}
-
-                        {% with post=post.specific %}
-
-                        <div class="swiper-slide">
-                            <div>
-                                <figure class="mb-6">
-                                    <a class="glightbox group relative block h-full overflow-hidden bg-gray-900"
-                                       href="{{ post.link }}">
-                                        {% with post.main_image as main_image %}
-                                        {% if main_image %}{% image main_image fill-370x208 class="aspect-video w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-75" alt="{{ post.title }}" %}{% endif %}
-                                        {% endwith %}
-
-                                        <span class="absolute top-1/2 left-1/2 flex aspect-square w-[60px] -translate-x-2/4 -translate-y-2/4 items-center justify-center rounded-full bg-accent">
-                            <svg role="img" class="ml-[3px] h-5 w-4 fill-white">
-                              <use xlink:href="{% static 'assets/img/yt1/sprite.svg#play' %}"></use>
-                            </svg>
-                          </span>
-                                    </a>
-                                </figure>
-                                <div>
-                                    <h3 class="mb-3 font-bold leading-tight text-primary dark:text-white"><a
-                                            href="{{ post.link }}">{{ post.title }}</a></h3>
-                                    <ul class="flex text-2sm leading-tight tracking-tighter [&>li]:after:mx-1 [&>li:not(:last-child)]:after:content-['-']">
-                                        <li>
-                                            734K
-                                            views
-                                        </li>
-                                        <li>
-                                            6 hours ago
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        {% endwith %}
-                        {% endfor %}
-
-
-                    </div>
-
-                </div>
+                {% include "home/videos-panel.html" %}
 
             </div>
         </section>
@@ -360,7 +145,7 @@
                     <div class="flex flex-col-reverse gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5 xl:gap-y-6">
                         <h3 class="leadin-none text-2xl font-bold tracking-tight text-primary dark:text-white sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl xl:leading-none">
                             Featured Gaming</h3>
-                        <div class="text-sm uppercase leading-tighter md:text-base">UnBox Vlogs</div>
+                        <div class="text-sm uppercase leading-tighter md:text-base">Gaming</div>
                     </div>
 
                     <div class="flex">
@@ -406,11 +191,7 @@
                                             href="{{ post.link }}">{{ post.title }}</a></h3>
                                     <ul class="flex text-2sm leading-tight tracking-tighter [&>li]:after:mx-1 [&>li:not(:last-child)]:after:content-['-']">
                                         <li>
-                                            734K
-                                            views
-                                        </li>
-                                        <li>
-                                            6 hours ago
+                                            {{ post.date }}
                                         </li>
                                     </ul>
                                 </div>
@@ -501,7 +282,6 @@
      {% include "home/promo-banner.html" %}
 
 
-     {% include "home/to-add.html" %}
 
 
 {% endblock %}

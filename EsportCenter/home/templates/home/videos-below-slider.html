@@ -1,0 +1,48 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+<div class="swiper js-vv-videos-featured-swiper md:w-[1236px] lg:w-[1278px] xl:w-[2068px]">
+
+    <div class="swiper-wrapper">
+
+        {% for post in videos %}
+
+        {% with post=post.specific %}
+
+        <div class="swiper-slide">
+            <div>
+                <figure class="mb-6">
+                    <a class="glightbox group relative block h-full overflow-hidden bg-gray-900"
+                       href="{{ post.link }}">
+                        {% with post.main_image as main_image %}
+                            {% if main_image %}{% image main_image fill-270x152 class="aspect-video w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-75" alt="{{ post.title }}" %}{% endif %}
+                        {% endwith %}
+
+                        <span class="absolute top-1/2 left-1/2 flex aspect-square w-10 -translate-x-2/4 -translate-y-2/4 items-center justify-center rounded-full bg-accent">
+                              <svg role="img" class="ml-[2px] h-4 w-3 fill-white">
+                                <use xlink:href="{% static 'assets/img/yt1/sprite.svg#play' %}"></use>
+                              </svg>
+                            </span>
+                    </a>
+                </figure>
+                <div>
+                    <h3 class="mb-3 font-bold leading-tight text-primary dark:text-white"><a
+                            href="{{ post.link }}">{{ post.title }}</a></h3>
+                    <ul class="flex text-2sm leading-tight tracking-tighter [&>li]:after:mx-1 [&>li:not(:last-child)]:after:content-['-']">
+                        <li>
+                            {{ post.date }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        {% endwith %}
+        {% endfor %}
+
+
+    </div>
+
+</div>

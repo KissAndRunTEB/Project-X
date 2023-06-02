@@ -1,0 +1,201 @@
+@config "../../../../tailwind.str2.config.js";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Lightbox Player */
+    --plyr-color-main: theme('colors.accent.DEFAULT');
+  }
+
+  .dark {
+    --color-accent: 0 255 234;
+    /* #00ffea */
+  }
+}
+
+@layer components {
+
+  /* Body Background */
+  .vv-body-bg {
+    mask-image: linear-gradient(black, transparent);
+  }
+
+  .sub-menu {
+    transform: rotateX(-75deg);
+  }
+
+  /* OL */
+  .list-ol {
+    counter-reset: listol;
+  }
+
+  .list-ol li {
+    counter-increment: listol;
+    @apply mb-3.5;
+  }
+
+  .list-ol li::before {
+    content: counters(listol, '') ' .';
+    @apply text-accent font-bold mr-2;
+  }
+
+  /* Social */
+  .vv-social-list-color a[href*="facebook.com"] {
+    background-color: theme('colors.social.facebook');
+  }
+
+  .vv-social-list-color a[href*="twitter.com"] {
+    background-color: theme('colors.social.twitter');
+  }
+
+  .vv-social-list-color a[href*="instagram.com"] {
+    background-color: theme('colors.social.instagram');
+  }
+
+  .vv-social-list-color a[href*="twitch.tv"] {
+    background-color: theme('colors.social.twitch');
+  }
+
+  .vv-social-list-color a[href*="discordapp.com"],
+  .vv-social-list-color a[href*="discord.com"],
+  .vv-social-list-color a[href*="discord.gg"] {
+    background-color: theme('colors.social.discord');
+  }
+
+  .vv-social-list-color a[href*="patreon.com"] {
+    background-color: theme('colors.social.patreon');
+  }
+
+  /* Loader Spikes Roll */
+  .vv-preloader-spikes-roll {
+    background-image: linear-gradient(#634fff 60px, transparent 0),
+      linear-gradient(#5962fc 60px, transparent 0),
+      linear-gradient(#4b7afa 60px, transparent 0),
+      linear-gradient(#3d93f7 60px, transparent 0),
+      linear-gradient(#2ab4f3 60px, transparent 0),
+      linear-gradient(#1ad1ef 60px, transparent 0),
+      linear-gradient(#0ce9ed 60px, transparent 0),
+      linear-gradient(#02fcea 60px, transparent 0);
+  }
+
+  /* Checkbox */
+  [type="checkbox"]:checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ff4654'%3E%3Cpath d='M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z'/%3E%3C/svg%3E");
+    background-size: 50% auto;
+  }
+
+  /* Radio */
+  [type="radio"]:checked {
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='3' cy='3' r='3' fill='%23ff4654'/%3E%3C/svg%3E%0A");
+    background-size: 6px;
+  }
+
+  /* Content */
+  .vv-prose {
+    @apply prose
+    max-w-none
+    pb-12
+    text-base
+    font-medium
+    prose-p:text-gray-500
+    dark:prose-p:text-gray
+    prose-headings:text-gray-900
+    dark:prose-headings:text-white
+    prose-h3:font-bold
+    prose-h4:tracking-tight
+    prose-blockquote:border-0
+    prose-blockquote:pl-0
+    prose-blockquote:text-center
+    prose-blockquote:not-italic
+    prose-blockquote:text-primary
+    prose-figcaption:text-center
+    prose-ol:p-0
+    prose-ol:text-gray-500
+    prose-ul:text-gray-500
+    prose-li:my-6
+    prose-li:flex
+    prose-li:gap-4
+    prose-li:pl-0
+    prose-lead:text-base
+    lg:prose-figure:my-16
+    prose-lead:text-gray-900
+    md:pb-20
+    lg:prose-lg
+    lg:pb-28
+    lg:leading-loose
+    lg:prose-headings:text-gray-900
+    lg:prose-h2:text-[42px]
+    lg:prose-h2:leading-tight
+    lg:prose-h3:text-4xl
+    lg:prose-h3:leading-tight
+    lg:prose-h3:mb-10
+    lg:prose-h4:text-[32px]
+    lg:prose-h4:font-bold
+    lg:prose-h4:leading-tighter
+    lg:prose-h4:mb-12
+    lg:prose-h5:text-[28px]
+    lg:prose-h5:font-bold
+    lg:prose-h5:leading-tight
+    lg:prose-h6:text-2xl
+    lg:prose-h6:font-bold
+    lg:prose-p:my-8
+    lg:prose-blockquote:pl-0
+    lg:prose-blockquote:text-1.5xl
+    lg:prose-blockquote:leading-9
+    lg:prose-ol:p-0
+    lg:prose-ul:p-0
+    lg:prose-li:my-3
+    lg:prose-li:pl-0
+    lg:prose-lead:mb-14
+    lg:prose-lead:text-[26px]
+    lg:prose-lead:leading-normal
+    dark:prose-blockquote:text-white
+    dark:prose-ol:text-gray
+    dark:prose-ul:text-gray
+    dark:prose-lead:text-white
+    dark:lg:prose-headings:text-white;
+  }
+
+  /* Hero Unit */
+  .vv-hero-decoration-left {
+    clip-path: polygon(0 0, calc(100% - 484px) 0, 100% 100%, 0% 100%);
+  }
+  .vv-hero-decoration-parallelogram {
+    clip-path: polygon(0 0, 65% 0, 100% 100%, 35% 100%);
+  }
+
+  .vv-hero-swiper-pagination .swiper-pagination-bullet-active {
+    @apply w-[34px] shadow-none bg-transparent before:bg-accent;
+  }
+
+  /* Banner */
+  .vv-channel-info-banner {
+    clip-path: polygon(12.5% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  /* Shop */
+  .vv-sale-label {
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+  }
+}
+
+
+@layer utilities {
+  .vv-link-underline {
+    @apply relative
+    inline-flex
+    after:absolute
+    after:bottom-[0.15em]
+    after:left-0
+    after:h-[1px]
+    after:w-full
+    after:origin-right
+    after:scale-x-0
+    after:bg-white
+    after:transition-transform
+    hover:after:origin-left
+    hover:after:scale-x-100
+  }
+}

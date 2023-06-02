@@ -1,0 +1,66 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+<section class="py-14 md:py-32 lg:py-44 xl:py-48">
+    <div class="container">
+        <div class="grid grid-cols-12 gap-x-5 md:gap-x-6 lg:gap-x-7.5">
+            <div class="col-span-full md:col-span-8 md:pr-6 lg:pr-12 xl:pr-[70px]">
+                <div class="relative block aspect-video before:absolute before:right-6 before:left-0 before:top-7 before:-bottom-8 xl:before:top-14 xl:before:-bottom-14 xl:before:right-10 before:bg-secondary">
+                    <div class="relative block h-full overflow-hidden bg-gray-900 ml-5 mb-8 xl:ml-7.5 xl:mb-14"><img
+                            class="h-full w-full object-cover" src="{% static 'images/cookie-break/podcast-cover.jpg' %}" alt="">
+                        <div class="absolute left-8 top-10 hidden -rotate-[4deg] -skew-x-6 sm:block md:left-10 md:top-12 lg:left-10 lg:top-12">
+                            <div class="w-fit bg-primary px-1 text-2xl font-bold uppercase leading-tight tracking-tighter text-white lg:px-2 lg:py-0.5 lg:text-1.5xl">
+                                It's time for
+                            </div>
+                            <div class="w-fit bg-accent px-3 py-[1px] text-4xl font-bold uppercase leading-none tracking-tighter text-white lg:px-2 lg:text-4xl">
+                                cookie break
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-full md:col-span-4 xl:-ml-[30px]">
+                    <div class="mb-4 flex flex-wrap items-end justify-between gap-y-6 sm:mb-5 sm:flex-row md:mb-6 lg:mb-8 xl:mb-12 xl:gap-y-12">
+                        <div class="flex flex-col-reverse gap-y-1 lg:gap-y-2 xl:gap-y-3">
+                            <h3 class="leadin-none text-2xl font-bold tracking-tight text-primary dark:text-white sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl xl:leading-none">
+                                Every Friday<br> at 9PM</h3>
+                            <div class="leading-tighter text-primary dark:text-white lg:text-2xl">New Videos!</div>
+                        </div>
+                    </div>
+
+                    <div class="pt-1 lg:text-lg lg:leading-8">
+
+                        <div class="mb-6 md:mb-8 lg:mb-10 xl:mb-12">
+                            <div class="mb-7 flex gap-4">
+                                <a class="group flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-accent md:mt-2" href="#">
+                                    <svg role="img" class="h-6 w-6 fill-white will-change-transform group-hover:animate-ring">
+                                        <use xlink:href="/static/assets/img/yt1/sprite.svg#bell"></use>
+                                    </svg>
+                                </a>
+                                <div class="flex-1">
+                                    Remember to
+                                    <a href="#" class="font-bold text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent">turn
+                                        on the notifications bell</a>
+                                    so you’ll be informed when a new video is uploaded!
+                                </div>
+                            </div>
+                            <p>We really appreaciate all your comments, likes and suggestions,
+                                so keep em coming!</p>
+                        </div>
+
+                        <a class="inline-flex items-center gap-x-3 text-xs font-bold uppercase text-primary md:text-sm" href="#">
+                  <span class="relative inline-flex h-[18px] w-[18px] items-center justify-center rounded-full border-2 border-primary dark:border-white">
+                    <svg role="img" class="h-[8px] w-[8px] fill-primary dark:fill-white">
+                      <use xlink:href="/static/assets/img/yt1/sprite.svg#chevron-right"></use>
+                    </svg>
+                  </span>
+                            <span class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent">See All Videos</span>
+                        </a>
+                    </div>
+
+                </div>
+        </div>
+        <div class="h-16 sm:h-20 md:h-28 lg:h-36 xl:h-44"></div>
+    </div>
+</section>

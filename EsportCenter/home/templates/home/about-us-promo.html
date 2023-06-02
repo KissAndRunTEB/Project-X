@@ -1,0 +1,43 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+{% load wagtailimages_tags %}
+{% load static %}
+<main id="main-content" class="grow lg:pt-0">
+    <div class="pt-10 pb-14 lg:pt-16 lg:pb-20 xl:pt-20 xl:pb-24">
+        <section class="py-14 lg:py-[88px]">
+            <div class="container">
+                <div class="grid grid-cols-12 gap-x-5 md:gap-x-6 lg:gap-x-7.5 gap-y-12">
+                    <div class="col-span-full md:col-span-6 relative z-[2] md:pt-6 lg:pt-8 xl:pt-10">
+                        <div class="not-prose flex flex-row mb-9 sm:mb-12 md:mb-14 lg:mb-16 xl:mb-20 justify-between items-end">
+                            <div class="flex flex-col">
+                                <div class="text-base font-medium uppercase tracking-tight text-primary md:text-lg lg:text-xl xl:text-1.5xl">
+                                    About Me
+                                </div>
+                                <h2 class="font-bold uppercase leading-none tracking-tighter text-gray-900 dark:text-white text-2.5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6.5xl xl:leading-[0.85em]">
+                                    Hi! <br>The <span class="text-primary">Retro</span> from
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="lg:max-w-sm xl:max-w-[402px] xl:-mt-4"><p>yuuyyuyu</p>
+                        </div>
+                    </div>
+                    <div class="col-span-full md:col-span-6">
+                        <figure class="relative isolate z-[1]"><img
+                                src="{% static 'assets/img/str2/samples/about-me.jpg' %}" alt="">
+                            <svg class="hidden md:block md:absolute md:-left-16 md:top-6 md:w-[370px] lg:w-[400px] xl:-left-32 xl:top-12 xl:w-[470px] aspect-[47/50] -z-10"
+                                 fill="none" viewBox="0 0 470 500">
+                                <defs>
+                                    <pattern id="dotted-pattern" x="0" y="0" width="26" height="26"
+                                             patternUnits="userSpaceOnUse">
+                                        <rect x="0" y="0" width="3" height="3" class="text-gray dark:text-[#70747b]"
+                                              fill="currentColor"></rect>
+                                    </pattern>
+                                </defs>
+                                <rect width="470" height="500" fill="url(#dotted-pattern)"></rect>
+                            </svg>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
