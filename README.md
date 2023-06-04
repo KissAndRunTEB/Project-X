@@ -24,3 +24,9 @@ In some cases it is neccessery to add page of admin panel too.
 
 To update libraries:
 pip install -r requirements.txt     
+
+
+BUG FIXES after updating template styles
+Fix file common.js in static/assets/js/common.js so Lightbox section look like this:
+    css: 'static/assets/vendors/common/glightbox/css/plyr.css',
+    js: 'static/assets/vendors/common/glightbox/js/plyr.js',
