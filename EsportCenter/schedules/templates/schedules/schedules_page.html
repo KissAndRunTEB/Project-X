@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}antialiased tracking-tight font-base text-gray-500 text-base h-full bg-white dark:bg-gray-900 overflow-x-hidden{% endblock %}
+
+{% block name %}
+Blog
+{% endblock%}
+
+{% block breadcrumb %}
+Blog
+{% endblock%}
+
+
+{% block content %}
+
+<main id="main-content" class="grow lg:pt-0">
+
+    <section class="pt-14 pb-24 lg:pt-[120px] lg:pb-[220px]">
+        <div class="container">
+            <article class="grid-col-4 grid gap-x-4 md:grid-cols-12 md:gap-x-6 lg:gap-x-[30px]">
+
+                <header class="col-span-full mb-4 flex flex-col items-center gap-y-6 md:col-start-3 md:col-end-11 md:mb-6">
+                    <a class="bg-accent px-3 py-1 text-xs font-bold uppercase leading-snug text-white transition-colors hover:bg-accent/90 md:text-sm"
+                       href="#">
+                        {{ page.date }}
+                    </a>
+                    <h1 class="pb-1 text-center text-2xl font-bold leading-tight tracking-tighter text-primary dark:text-white md:text-3xl lg:px-8 lg:text-5xl lg:leading-none">
+                        {{ page.title }}
+                    </h1>
+
+                </header>
+
+
+                <figure class="col-span-full mb-8 md:col-start-2 md:col-end-12 md:mb-14">
+                    <a class="group relative block h-full overflow-hidden bg-gray-900" href="#">
+                        <img class="aspect-video w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-75"
+                             src="{% static 'assets/img/yt1/samples/post-img-1.jpg' %}" alt="">
+                        <span class="absolute top-1/2 left-1/2 flex aspect-square h-20 w-20 -translate-x-2/4 -translate-y-2/4 items-center justify-center rounded-full bg-accent">
+                  <svg role="img" class="mr-[-3px] h-[27px] w-[22px] fill-white">
+                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#play' %}"></use>
+                  </svg>
+                </span>
+                    </a>
+                </figure>
+
+                <div class="col-span-full md:col-start-3 md:col-end-11">
+                    <div class="vv-prose">
+                        <p class="lead">
+                            {{ page.intro }}
+                        </p>
+
+                        <p>{{ page.body|richtext }}
+                        </p>
+
+
+                        {% for item in page.gallery_images.all %}
+                        <div style="float: left; margin: 10px">
+                            {% image item.image fill-320x240 %}
+                            <p>{{ item.caption }}</p>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+
+            </article>
+        </div>
+    </section>
+
+</main>
+
+
+{% endblock %}

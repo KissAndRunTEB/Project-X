@@ -125,7 +125,7 @@ if (document.querySelector('.accordion')) {
 const lightbox = GLightbox({
   selector: '.glightbox',
   plyr: {
-    css: 'static/assets/vendors/common/glightbox/css/plyr.css',
-    js: 'static/assets/vendors/common/glightbox/js/plyr.js',
+    css: 'assets/vendors/common/glightbox/css/plyr.css',
+    js: 'assets/vendors/common/glightbox/js/plyr.js',
   }
 });

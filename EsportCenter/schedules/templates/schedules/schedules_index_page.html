@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}antialiased tracking-tight font-base text-gray-500 text-base h-full bg-white dark:bg-gray-900 overflow-x-hidden{% endblock %}
+{% block name %}
+Schedule
+{% endblock%}
+
+{% block breadcrumb %}
+Schedule
+{% endblock%}
+
+{% block extra_css %}
+<link href="{% static 'css/str2-short.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+<main id="main-content" class="grow lg:pt-0">
+
+    <section class="pt-14 pb-24 lg:pt-[120px] lg:pb-[220px]">
+        <div class="container">
+            <div class="relative -mt-20 mb-14 flex flex-col md:flex-row md:justify-between lg:-mt-[200px] lg:mb-40">
+
+                <ul class="relative z-10 items-start md:items-stretch flex flex-col py-4 md:py-0 md:flex-row md:gap-x-6 lg:gap-x-12 xl:gap-x-14 md:min-h-[100px] lg:min-h-[120px]">
+
+                    <li class="flex after:absolute after:h-1 md:after:bottom-0 after:bottom-1 after:bg-accent after:inset-x-0 relative">
+                        <a class="flex items-center py-2 font-bold transition-all hover:text-primary dark:hover:text-white hover:opacity-100 text-sm lg:text-base opacity-100 text-primary lg:text-primary dark:text-white dark:lg:text-white"
+                           href="/schedule/">
+                            All Schedules
+                        </a>
+                    </li>
+
+
+                </ul>
+                <div class="relative z-10 flex justify-between gap-x-4 pr-6 pb-5 md:pb-0 md:gap-x-6 lg:gap-x-10 lg:pr-[60px]">
+
+
+                </div>
+
+                <div class="absolute inset-0 -left-full bg-white dark:bg-gray-800 shadow-3xl"></div>
+            </div>
+
+            <div class="container">
+                {% for item in schedulespages %}
+
+                {% with item=item.specific %}
+
+                <div class="not-prose flex flex-row mb-9 sm:mb-12 md:mb-14 lg:mb-16 xl:mb-20 justify-between items-end">
+                    <div class="flex flex-col">
+                        <div class="text-base font-medium uppercase tracking-tight text-primary md:text-lg lg:text-xl xl:text-1.5xl">
+                            Watch on <a href="{{ item.streamer.TwitchLink }}">Twitch @{{ item.streamer.TwitchName }}</a>
+                        </div>
+                        <h2 class="font-bold uppercase leading-none tracking-tighter text-gray-900 before:inline-block before:text-primary before:content-['.'] before:mr-[0.15em] dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5.5xl">
+                            <a href="{{ item.streamer.TwitchLink }}">{{ item.nick }}</a></h2>
+                    </div>
+
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-y-7 gap-x-5">
+
+                    <div class="flex flex-col">
+                        <h5 class="text-gray-900 dark:text-white font-bold uppercase tracking-tighter text-base leading-none mb-4">
+                            Mondays</h5>
+                        {% if item.isMonday %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-primary">
+                            <div class="font-bold uppercase leading-none tracking-tighter mb-0.5 text-xl md:text-2xl xl:text-3xl xl:mb-1.5">
+                                <span class="text-primary">{{ item.hourMonday }}</span><span
+                                    class="text-gray-900 dark:text-white">PM</span>
+                            </div>
+                            <div class="text-gray-600 text-sm uppercase font-bold tracking-tighter leading-none lg:text-base lg:leading-none">
+                                {{ item.timezone }}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-gray-100 dark:border-gray-675">
+                            <div class="font-bold uppercase leading-none tracking-tighter text-xl md:text-2xl lg:text-2.5xl xl:text-3xl text-gray-600">
+                                -
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col">
+                        <h5 class="text-gray-900 dark:text-white font-bold uppercase tracking-tighter text-base leading-none mb-4">
+                            Tuesdays</h5>
+                        {% if item.isTuesday %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-primary">
+                            <div class="font-bold uppercase leading-none tracking-tighter mb-0.5 text-xl md:text-2xl xl:text-3xl xl:mb-1.5">
+                                <span class="text-primary">{{ item.hourTuesday }}</span><span
+                                    class="text-gray-900 dark:text-white">PM</span>
+                            </div>
+                            <div class="text-gray-600 text-sm uppercase font-bold tracking-tighter leading-none lg:text-base lg:leading-none">
+                                {{ item.timezone }}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-gray-100 dark:border-gray-675">
+                            <div class="font-bold uppercase leading-none tracking-tighter text-xl md:text-2xl lg:text-2.5xl xl:text-3xl text-gray-600">
+                                -
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col">
+                        <h5 class="text-gray-900 dark:text-white font-bold uppercase tracking-tighter text-base leading-none mb-4">
+                            Wednesdays</h5>
+                        {% if item.isWednesday %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-primary">
+                            <div class="font-bold uppercase leading-none tracking-tighter mb-0.5 text-xl md:text-2xl xl:text-3xl xl:mb-1.5">
+                                <span class="text-primary">{{ item.hourWednesday }}</span><span
+                                    class="text-gray-900 dark:text-white">PM</span>
+                            </div>
+                            <div class="text-gray-600 text-sm uppercase font-bold tracking-tighter leading-none lg:text-base lg:leading-none">
+                                {{ item.timezone }}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-gray-100 dark:border-gray-675">
+                            <div class="font-bold uppercase leading-none tracking-tighter text-xl md:text-2xl lg:text-2.5xl xl:text-3xl text-gray-600">
+                                -
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col">
+                        <h5 class="text-gray-900 dark:text-white font-bold uppercase tracking-tighter text-base leading-none mb-4">
+                            Thursdays</h5>
+                        {% if item.isThursday %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-primary">
+                            <div class="font-bold uppercase leading-none tracking-tighter mb-0.5 text-xl md:text-2xl xl:text-3xl xl:mb-1.5">
+                                <span class="text-primary">{{ item.hourThursday }}</span><span
+                                    class="text-gray-900 dark:text-white">PM</span>
+                            </div>
+                            <div class="text-gray-600 text-sm uppercase font-bold tracking-tighter leading-none lg:text-base lg:leading-none">
+                                {{ item.timezone }}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-gray-100 dark:border-gray-675">
+                            <div class="font-bold uppercase leading-none tracking-tighter text-xl md:text-2xl lg:text-2.5xl xl:text-3xl text-gray-600">
+                                -
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col">
+                        <h5 class="text-gray-900 dark:text-white font-bold uppercase tracking-tighter text-base leading-none mb-4">
+                            Fridays</h5>
+                        {% if item.isFridays %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-primary">
+                            <div class="font-bold uppercase leading-none tracking-tighter mb-0.5 text-xl md:text-2xl xl:text-3xl xl:mb-1.5">
+                                <span class="text-primary">{{ item.hourFriday }}</span><span
+                                    class="text-gray-900 dark:text-white">PM</span>
+                            </div>
+                            <div class="text-gray-600 text-sm uppercase font-bold tracking-tighter leading-none lg:text-base lg:leading-none">
+                                {{ item.timezone }}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-gray-100 dark:border-gray-675">
+                            <div class="font-bold uppercase leading-none tracking-tighter text-xl md:text-2xl lg:text-2.5xl xl:text-3xl text-gray-600">
+                                -
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col">
+                        <h5 class="text-gray-900 dark:text-white font-bold uppercase tracking-tighter text-base leading-none mb-4">
+                            Saturdays</h5>
+                        {% if item.isSaturday %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-primary">
+                            <div class="font-bold uppercase leading-none tracking-tighter mb-0.5 text-xl md:text-2xl xl:text-3xl xl:mb-1.5">
+                                <span class="text-primary">{{ item.hourSaturday }}</span><span
+                                    class="text-gray-900 dark:text-white">PM</span>
+                            </div>
+                            <div class="text-gray-600 text-sm uppercase font-bold tracking-tighter leading-none lg:text-base lg:leading-none">
+                                {{ item.timezone }}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-gray-100 dark:border-gray-675">
+                            <div class="font-bold uppercase leading-none tracking-tighter text-xl md:text-2xl lg:text-2.5xl xl:text-3xl text-gray-600">
+                                -
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col">
+                        <h5 class="text-gray-900 dark:text-white font-bold uppercase tracking-tighter text-base leading-none mb-4">
+                            Sundays</h5>
+                        {% if item.isSunday %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-primary">
+                            <div class="font-bold uppercase leading-none tracking-tighter mb-0.5 text-xl md:text-2xl xl:text-3xl xl:mb-1.5">
+                                <span class="text-primary">{{ item.hourSunday }}</span><span
+                                    class="text-gray-900 dark:text-white">PM</span>
+                            </div>
+                            <div class="text-gray-600 text-sm uppercase font-bold tracking-tighter leading-none lg:text-base lg:leading-none">
+                                {{ item.timezone }}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="flex-1 flex flex-col justify-center items-center py-7 px-5 lg:min-h-[120px] xl:min-h-[150px] bg-gray-50 dark:bg-gray-700 border-b-[6px] border-gray-100 dark:border-gray-675">
+                            <div class="font-bold uppercase leading-none tracking-tighter text-xl md:text-2xl lg:text-2.5xl xl:text-3xl text-gray-600">
+                                -
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <br/><br/>
+
+
+                {% endwith %}
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}

@@ -29,6 +29,9 @@ INSTALLED_APPS = [
     "events",
     "videos",
     "custom",
+    "streamers",
+    "schedules",
+    "slides",
     "search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -94,6 +97,27 @@ DATABASES = {
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'HOST': '54.38.53.115',
+#         'PORT': '5432',
+#         'NAME': 'bloodrush',
+#         'USER': 'bloodrush',
+#         'PASSWORD': 'Zv)w!AW2zX:=;2.',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#         'NAME': 'bloodrush',
+#         'USER': 'bloodrush',
+#         'PASSWORD': 'Zv)w!AW2zX:=;2.',
+#     }
+# }
 
 
 # Password validation

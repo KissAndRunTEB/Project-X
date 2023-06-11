@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}antialiased tracking-tight font-base text-gray-500 text-base h-full bg-white dark:bg-gray-900 overflow-x-hidden{% endblock %}
+{% block name %}
+Streamers
+{% endblock%}
+
+{% block breadcrumb %}
+Streamers
+{% endblock%}
+
+{% block extra_css %}
+<link href="{% static 'css/str2-short.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<main id="main-content" class="grow lg:pt-0">
+
+    <section class="pt-14 pb-24 lg:pb-52 lg:pt-40">
+        <div class="container">
+            <div class="relative -mt-20 mb-14 flex flex-col md:flex-row md:justify-between lg:-mt-[200px] lg:mb-40">
+
+                <ul class="relative z-10 items-start md:items-stretch flex flex-col py-4 md:py-0 md:flex-row md:gap-x-6 lg:gap-x-12 xl:gap-x-14 md:min-h-[100px] lg:min-h-[120px]">
+
+                    <li class="flex after:absolute after:h-1 md:after:bottom-0 after:bottom-1 after:bg-accent after:inset-x-0 relative">
+                        <a class="flex items-center py-2 font-bold transition-all hover:text-primary dark:hover:text-white hover:opacity-100 text-sm lg:text-base opacity-100 text-primary lg:text-primary dark:text-white dark:lg:text-white"
+                           href="/streamers/">
+                            All Streamers
+                        </a>
+                    </li>
+
+
+                </ul>
+                <div class="relative z-10 flex justify-between gap-x-4 pr-6 pb-5 md:pb-0 md:gap-x-6 lg:gap-x-10 lg:pr-[60px]">
+
+
+                </div>
+
+                <div class="absolute inset-0 -left-full bg-white dark:bg-gray-800 shadow-3xl"></div>
+            </div>
+
+
+            <div class="container">
+                <div class="flex flex-col gap-y-7.5">
+                    {% for item in streamerspages %}
+
+                    {% with item=item.specific %}
+                    <div class="flex flex-col sm:flex-row sm:flex-wrap bg-gray-50 dark:bg-gray-700">
+                        <figure class="shrink-0 ml-6 mt-6 sm:ml-0 sm:mt-0"><a href="{% pageurl item %}">
+                            {% with item.main_image as main_image %}
+                            {% if main_image %}{% image main_image fill-300x380 %}{% endif %}
+                            {% endwith %}</a></figure>
+                        <div class="flex-1 p-6 sm:p-7 md:p-8 lg:p-10 xl:p-12">
+                            <div class="flex flex-wrap justify-between gap-6 mb-5 lg:mb-7">
+                                <div>
+                                    <hgroup class="-mt-1"><h3
+                                            class="uppercase text-xl lg:text-2xl lg:leading-none font-bold text-gray-900 dark:text-white leading-none tracking-tight">
+                                        {{ item.nick }}</h3>
+                                        <p class="font-bold uppercase text-primary tracking-tight mb-2"><a href="{{ item.TwitchLink }}">Watch on Twitch @{{ item.TwitchName }}</a></p></hgroup>
+                                    <div class="flex items-center gap-x-4 relative text-sm leading-none">
+                                        <div class="relative inline-flex leading-none gap-1">
+                                            <svg role="img" class="h-2.5 w-2.5 fill-gray-200 dark:fill-white/20">
+                                                <use xlink:href="assets/img/str2/sprite.svg#star"></use>
+                                            </svg>
+                                            <svg role="img" class="h-2.5 w-2.5 fill-gray-200 dark:fill-white/20">
+                                                <use xlink:href="assets/img/str2/sprite.svg#star"></use>
+                                            </svg>
+                                            <svg role="img" class="h-2.5 w-2.5 fill-gray-200 dark:fill-white/20">
+                                                <use xlink:href="assets/img/str2/sprite.svg#star"></use>
+                                            </svg>
+                                            <svg role="img" class="h-2.5 w-2.5 fill-gray-200 dark:fill-white/20">
+                                                <use xlink:href="assets/img/str2/sprite.svg#star"></use>
+                                            </svg>
+                                            <svg role="img" class="h-2.5 w-2.5 fill-gray-200 dark:fill-white/20">
+                                                <use xlink:href="assets/img/str2/sprite.svg#star"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="absolute left-0 top-0 inline-flex leading-none gap-1">
+                                            <svg role="img" class="h-2.5 w-2.5 fill-gray-900 dark:fill-white">
+                                                <use xlink:href="assets/img/str2/sprite.svg#star"></use>
+                                            </svg>
+                                            <svg role="img" class="h-2.5 w-2.5 fill-gray-900 dark:fill-white">
+                                                <use xlink:href="assets/img/str2/sprite.svg#star"></use>
+                                            </svg>
+                                            <svg role="img" class="h-2.5 w-2.5 fill-gray-900 dark:fill-white">
+                                                <use xlink:href="assets/img/str2/sprite.svg#star"></use>
+                                            </svg>
+                                            <svg role="img" class="h-2.5 w-2.5 fill-gray-900 dark:fill-white">
+                                                <use xlink:href="assets/img/str2/sprite.svg#star"></use>
+                                            </svg>
+                                            <svg role="img" class="h-2.5 w-2.5 fill-gray-900 dark:fill-white">
+                                                <use xlink:href="assets/img/str2/sprite.svg#star"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">{{ item.description|richtext }}
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center basis-full md:basis-auto p-6 sm:p-7 md:p-8 lg:p-10 xl:p-12">
+                            <a href="{% pageurl item %}"
+                               class="inline-flex text-center font-bold leading-none transition-colors uppercase justify-center gap-x-3 py-3 px-4 md:py-[13px] lg:px-7 text-sm text-gray-625 ring-1 ring-inset ring-gray-625 bg-transparent hover:bg-primary hover:text-white hover:ring-primary">Read more</a></div>
+                    </div>
+                    {% endwith %}
+                    {% endfor %}
+
+
+                </div>
+                <div class="h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28"></div>
+
+            </div>
+
+
+            <div class="grid grid-cols-12 gap-y-7 sm:gap-[30px]">
+
+                {% for item in streamerspages %}
+
+                {% with item=item.specific %}
+
+                <div class="col-span-full sm:col-span-6 lg:col-span-4">
+                    <figure class="group overflow-hidden bg-gray-900">
+                        <a href="{% pageurl item %}">
+
+                            {% with item.main_image as main_image %}
+                            {% if main_image %}{% image main_image fill-370x240 %}{% endif %}
+                            {% endwith %}
+                        </a>
+                    </figure>
+                    <div class="relative -mt-20 mr-8 lg:mr-10">
+                        <div class="inline-flex bg-accent px-2 py-[6px] text-xs font-bold uppercase leading-none text-white">
+                            AAAAAAAAAAAAAAAAAAAAAAAAA
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-6">
+                            <h2 class="mb-4 text-xl font-bold leading-6 lg:tracking-tighter">
+                                <a href="{% pageurl item %}"
+                                   class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent">
+                                    {{ item.nick }}
+                                </a>
+                            </h2>
+                            <div class="text-sm">{{ item.date }}</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                {% endwith %}
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+{% endblock %}

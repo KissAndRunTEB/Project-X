@@ -17,6 +17,14 @@ class HomePage(Page):
         blogpages=self.get_children()[0].get_children().live()
         context['blogpages'] = blogpages
 
+        # Retrieve the "Page Sliders" page dynamically
+        slider = Page.objects.get(slug='slides')
+
+        # Retrieve the children of the "Page Sliders" page
+        slider = slider.get_children().live().order_by('-last_published_at')
+
+        context['slider'] = slider
+
         videos=self.get_children()[3].get_children().live()
         context['videos'] = videos
         return context

@@ -30,3 +30,14 @@ BUG FIXES after updating template styles
 Fix file common.js in static/assets/js/common.js so Lightbox section look like this:
     css: 'static/assets/vendors/common/glightbox/css/plyr.css',
     js: 'static/assets/vendors/common/glightbox/js/plyr.js',
+
+
+To connect database need install this library:
+pip install psycopg2-binary
+
+Migration sqlittle -> postersql
+sqlite3 your-sqlite3-database.db .dump > dump.sql
+
+python manage.py dumpdata > data.json
+
+
