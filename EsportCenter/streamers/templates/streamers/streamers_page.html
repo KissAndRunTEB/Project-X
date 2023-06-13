@@ -15,12 +15,12 @@ Streamer
 
 {% block extra_css %}
 <link href="{% static 'css/str2-short.css' %}" rel="stylesheet">
+<link href="{% static 'css/yt2-short.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
 
 <main id="main-content" class="grow lg:pt-0">
-
 
 
     <section class="pt-14 pb-24 lg:pt-[120px] lg:pb-[220px]">
@@ -44,8 +44,10 @@ Streamer
         </div>
 
         <div class="container">
-          <iframe class="w-full aspect-[585/323] mb-6 lg:mb-7.5" src="https://player.twitch.tv/?channel={{ item.streamer.TwitchName }}&parent=bloodrush.gg" allowfullscreen>
-          </iframe>
+            <iframe class="w-full aspect-[585/323] mb-6 lg:mb-7.5"
+                    src="https://player.twitch.tv/?channel={{ item.streamer.TwitchName }}&parent=bloodrush.gg"
+                    allowfullscreen>
+            </iframe>
             {% with item=schedule.specific %}
 
 
@@ -214,6 +216,85 @@ Streamer
 
 
             {% endwith %}
+
+
+            <div class="h-16 md:h-20 lg:h-24 xl:h-40"></div>
+
+            <div class="mb-10 lg:mb-14 xl:mb-20">
+                <h2 class="font-bold text-primary dark:text-white text-2xl md:text-3xl lg:text-4xl xl:text-5xl lg:leading-none tracking-tight xl:tracking-tight">
+                    My Social Accounts!
+                </h2>
+            </div>
+
+            <ul class="grid grid-cols-12 gap-x-5 md:gap-x-6 gap-y-5 md:gap-y-6 lg:gap-x-7.5 lg:gap-y-7.5 vv-social-list-color lg:pt-2">
+                <li class="col-span-full sm:col-span-6 md:col-span-4 xl:col-span-2">
+                    <a class="flex items-center justify-center text-white py-5 gap-x-2.5 transition-transform hover:-translate-y-2 hover:shadow-md"
+                       href="https://www.facebook.com/danfisher.dev/">
+                        <svg class="aspect-square w-4" fill="currentColor">
+                            <use xlink:href="{% static 'assets/img/social-icons.svg#facebook' %}"></use>
+                        </svg>
+                        <div class="text-center leading-tight">
+                            <div class="leading-tight font-bold">Facebook</div>
+                        </div>
+                    </a>
+                </li>
+                <li class="col-span-full sm:col-span-6 md:col-span-4 xl:col-span-2">
+                    <a class="flex items-center justify-center text-white py-5 gap-x-2.5 transition-transform hover:-translate-y-2 hover:shadow-md"
+                       href="https://twitter.com/danfisher_dev">
+                        <svg class="aspect-square w-4" fill="currentColor">
+                            <use xlink:href="{% static 'assets/img/social-icons.svg#twitter' %}"></use>
+                        </svg>
+                        <div class="text-center leading-tight">
+                            <div class="leading-tight font-bold">Twitter</div>
+                        </div>
+                    </a>
+                </li>
+                <li class="col-span-full sm:col-span-6 md:col-span-4 xl:col-span-2">
+                    <a class="flex items-center justify-center text-white py-5 gap-x-2.5 transition-transform hover:-translate-y-2 hover:shadow-md"
+                       href="http://instagram.com/dan.fisher.dev/">
+                        <svg class="aspect-square w-4" fill="currentColor">
+                            <use xlink:href="{% static 'assets/img/social-icons.svg#instagram' %}"></use>
+                        </svg>
+                        <div class="text-center leading-tight">
+                            <div class="leading-tight font-bold">Instagram</div>
+                        </div>
+                    </a>
+                </li>
+                <li class="col-span-full sm:col-span-6 md:col-span-4 xl:col-span-2">
+                    <a class="flex items-center justify-center text-white py-5 gap-x-2.5 transition-transform hover:-translate-y-2 hover:shadow-md"
+                       href="https://twitch.tv/">
+                        <svg class="aspect-square w-4" fill="currentColor">
+                            <use xlink:href="{% static 'assets/img/social-icons.svg#twitch' %}"></use>
+                        </svg>
+                        <div class="text-center leading-tight">
+                            <div class="leading-tight font-bold">Twitch</div>
+                        </div>
+                    </a>
+                </li>
+                <li class="col-span-full sm:col-span-6 md:col-span-4 xl:col-span-2">
+                    <a class="flex items-center justify-center text-white py-5 gap-x-2.5 transition-transform hover:-translate-y-2 hover:shadow-md"
+                       href="https://www.youtube.com/@danfisher-dev">
+                        <svg class="aspect-square w-4" fill="currentColor">
+                            <use xlink:href="{% static 'assets/img/social-icons.svg#youtube' %}"></use>
+                        </svg>
+                        <div class="text-center leading-tight">
+                            <div class="leading-tight font-bold">Youtube</div>
+                        </div>
+                    </a>
+                </li>
+                <li class="col-span-full sm:col-span-6 md:col-span-4 xl:col-span-2">
+                    <a class="flex items-center justify-center text-white py-5 gap-x-2.5 transition-transform hover:-translate-y-2 hover:shadow-md"
+                       href="https://discord.com">
+                        <svg class="aspect-square w-4" fill="currentColor">
+                            <use xlink:href="{% static 'assets/img/social-icons.svg#discord' %}"></use>
+                        </svg>
+                        <div class="text-center leading-tight">
+                            <div class="leading-tight font-bold">Discord</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
 
         </div>
 

@@ -32,6 +32,9 @@ INSTALLED_APPS = [
     "streamers",
     "schedules",
     "slides",
+    "games",
+    "snapshots",
+    "decks",
     "search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -191,4 +194,6 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = "http://example.com"
+WAGTAILADMIN_BASE_URL = "https://bloodrush.gg"
+
+CSRF_TRUSTED_ORIGINS = ['https://bloodrush.gg', 'https://www.bloodrush.gg','http://bloodrush.gg', 'http://www.bloodrush.gg']

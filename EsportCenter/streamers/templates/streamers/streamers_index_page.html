@@ -13,6 +13,7 @@ Streamers
 
 {% block extra_css %}
 <link href="{% static 'css/str2-short.css' %}" rel="stylesheet">
+<link href="{% static 'css/yt2-short.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -99,7 +100,14 @@ Streamers
                                 </div>
                             </div>
                             <div class="">{{ item.description|richtext }}
+
+
+
                             </div>
+
+
+
+
                         </div>
                         <div class="flex items-center justify-center basis-full md:basis-auto p-6 sm:p-7 md:p-8 lg:p-10 xl:p-12">
                             <a href="{% pageurl item %}"
@@ -115,43 +123,7 @@ Streamers
             </div>
 
 
-            <div class="grid grid-cols-12 gap-y-7 sm:gap-[30px]">
 
-                {% for item in streamerspages %}
-
-                {% with item=item.specific %}
-
-                <div class="col-span-full sm:col-span-6 lg:col-span-4">
-                    <figure class="group overflow-hidden bg-gray-900">
-                        <a href="{% pageurl item %}">
-
-                            {% with item.main_image as main_image %}
-                            {% if main_image %}{% image main_image fill-370x240 %}{% endif %}
-                            {% endwith %}
-                        </a>
-                    </figure>
-                    <div class="relative -mt-20 mr-8 lg:mr-10">
-                        <div class="inline-flex bg-accent px-2 py-[6px] text-xs font-bold uppercase leading-none text-white">
-                            AAAAAAAAAAAAAAAAAAAAAAAAA
-                        </div>
-                        <div class="bg-white dark:bg-gray-800 p-6">
-                            <h2 class="mb-4 text-xl font-bold leading-6 lg:tracking-tighter">
-                                <a href="{% pageurl item %}"
-                                   class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent">
-                                    {{ item.nick }}
-                                </a>
-                            </h2>
-                            <div class="text-sm">{{ item.date }}</div>
-                        </div>
-                    </div>
-                </div>
-
-
-                {% endwith %}
-                {% endfor %}
-
-
-            </div>
 
         </div>
     </section>
