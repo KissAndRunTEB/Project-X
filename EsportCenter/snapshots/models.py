@@ -13,6 +13,13 @@ from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 
 from games.models import GamesPage
+from decks.models import DecksPage
+from videos.models import VideosPage
+
+OPTIONSFORSTATE = [
+    ('option1', 'Draft'),
+    ('option2', 'Public'),
+]
 
 class SnapshotsIndexPage(Page):
     intro = RichTextField(blank=True)
@@ -41,6 +48,41 @@ class SnapshotsPage(Page):
         blank=False,
         related_name='snapshots'
     )
+    authors = models.CharField(max_length=500, null=True, blank=True)
+    patreons = models.CharField(max_length=500, null=True, blank=True)
+    state = models.CharField(max_length=20, choices=OPTIONSFORSTATE, default=OPTIONSFORSTATE[0][0])
+
+    tierone = ParentalManyToManyField(
+        DecksPage,
+        blank=True,
+        related_name='snapshots_tierone',
+        help_text='Select multiple Decks for this Snapshot'
+    )
+    tiertwo = ParentalManyToManyField(
+        DecksPage,
+        blank=True,
+        related_name='snapshots_tiertwo',
+        help_text='Select multiple Decks for this Snapshot'
+    )
+    tierthree = ParentalManyToManyField(
+        DecksPage,
+        blank=True,
+        related_name='snapshots_tierthree',
+        help_text='Select multiple Decks for this Snapshot'
+    )
+    tierhonorable = ParentalManyToManyField(
+        DecksPage,
+        blank=True,
+        related_name='snapshots_tierhonorable',
+        help_text='Select multiple Decks for this Snapshot'
+    )
+    videos = ParentalManyToManyField(
+        VideosPage,
+        blank=True,
+        related_name='snapshots_videos',
+        help_text='Select multiple Videos for this Snapshot'
+    )
+
 
     def main_image(self):
         gallery_item = self.gallery_images.first()
@@ -64,6 +106,14 @@ class SnapshotsPage(Page):
         FieldPanel('body'),
         InlinePanel('gallery_images', label="Gallery images"),
         FieldPanel('game'),
+        FieldPanel('authors'),
+        FieldPanel('patreons'),
+        FieldPanel('state'),
+        FieldPanel('tierone'),
+        FieldPanel('tiertwo'),
+        FieldPanel('tierthree'),
+        FieldPanel('tierhonorable'),
+        FieldPanel('videos'),
     ]
 
 

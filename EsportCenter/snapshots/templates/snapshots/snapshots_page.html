@@ -17,6 +17,14 @@ Snapshot
 
 
 Game: {{ page.game.name }} gg
+Authors: {{page.authors}}
+Patreons: {{page.patreons}}
+State: {{page.state}}
+<br/>
+Tier one:
+    {% for deck in page.tierone.all %}
+      <li>{{ deck.name }}</li>
+    {% endfor %}
 
 <main id="main-content" class="grow lg:pt-0">
 
