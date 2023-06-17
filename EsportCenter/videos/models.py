@@ -73,6 +73,7 @@ class VideosPage(Page):
     body = RichTextField(blank=True)
     tags = ClusterTaggableManager(through=VideosPageTag, blank=True)
     categories = ParentalManyToManyField('videos.VideosCategory', blank=True)
+    language = models.CharField(max_length=250, default="English")
 
     def main_image(self):
         gallery_item = self.gallery_images.first()
@@ -96,6 +97,7 @@ class VideosPage(Page):
         FieldPanel('link'),
         FieldPanel('body'),
         InlinePanel('gallery_images', label="Gallery images"),
+        FieldPanel('language'),
     ]
 
 

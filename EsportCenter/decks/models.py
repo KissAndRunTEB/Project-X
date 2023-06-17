@@ -34,6 +34,12 @@ class DecksPage(Page):
     body = RichTextField(blank=True)
     name = models.CharField(max_length=250)
 
+    stars = models.FloatField(default=3)
+    faction = models.CharField(max_length=250, default="")
+    link = models.CharField(max_length=250, default="")
+    good = models.CharField(max_length=500, default="")
+    bad = models.CharField(max_length=500, default="")
+
     def main_image(self):
         gallery_item = self.gallery_images.first()
         if gallery_item:
@@ -52,8 +58,13 @@ class DecksPage(Page):
             FieldPanel('date'),
         ], heading="Deck information"),
         FieldPanel('name'),
+        FieldPanel('stars'),
         FieldPanel('intro'),
         FieldPanel('body'),
+        FieldPanel('faction'),
+        FieldPanel('link'),
+        FieldPanel('good'),
+        FieldPanel('bad'),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
 
