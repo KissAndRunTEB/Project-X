@@ -40,4 +40,3 @@ sqlite3 your-sqlite3-database.db .dump > dump.sql
 
 python manage.py dumpdata > data.json
 
-

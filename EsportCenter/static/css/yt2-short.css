@@ -1,0 +1,18 @@
+.vv-social-list-color a[href*="facebook.com"] {
+    background-color: #3f74ee;
+  }
+.vv-social-list-color a[href*="twitter.com"] {
+    background-color: #2ab6ff;
+  }
+.vv-social-list-color a[href*="instagram.com"] {
+    background-color: #f4417f;
+  }
+.vv-social-list-color a[href*="youtube.com"] {
+    background-color: #ff3d55;
+  }
+.vv-social-list-color a[href*="discord.com"] {
+    background-color: #7289d9;
+  }
+.vv-social-list-color a[href*="twitch.tv"] {
+    background-color: #9246ff;
+  }
