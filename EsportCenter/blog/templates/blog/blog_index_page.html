@@ -41,23 +41,8 @@ Blog
                     {% endfor %}
 
 
-
                 </ul>
-<!--                <div class="relative z-10 flex justify-between gap-x-4 pr-6 pb-5 md:pb-0 md:gap-x-6 lg:gap-x-10 lg:pr-[60px]">-->
-<!--                    <ul class="flex gap-4 lg:gap-6 pt-2 md:self-center md:pt-0">-->
-<!--                        <li><a class="group" href="{{ current_url_to_style1 }}">-->
-<!--                            <svg role="img" class="h-6 w-6 fill-accent dark:fill-accent">-->
-<!--                                <use xlink:href="{% static 'assets/img/yt1/sprite.svg#grid' %}"></use>-->
-<!--                            </svg>-->
-<!--                        </a></li>-->
-<!--                        <li><a class="group" href="{{ current_url_to_style2 }}">-->
-<!--                            <svg role="img"-->
-<!--                                 class="h-6 w-6 fill-primary group-hover:fill-accent transition-colors dark:fill-white dark:group-hover:fill-accent">-->
-<!--                                <use xlink:href="{% static 'assets/img/yt1/sprite.svg#grid-sm' %}"></use>-->
-<!--                            </svg>-->
-<!--                        </a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
+
 
                 <div class="absolute inset-0 -left-full bg-white dark:bg-gray-800 shadow-3xl"></div>
             </div>
@@ -68,50 +53,62 @@ Blog
 
                 {% with post=post.specific %}
 
-
-                {% if request.GET.style == '1' %}
-                <div class="col-span-full sm:col-span-6 lg:col-span-4">
-
-                {% elif request.GET.style == '2' %}
-                <div class="col-span-full sm:col-span-6 lg:col-span-3">
-
-                {% else %}
-                <div class="col-span-full sm:col-span-6 lg:col-span-4">
-
-                {% endif %}
-
-
-                            <figure class="group overflow-hidden bg-gray-900">
-                                <a href="{% pageurl post %}">
-
-                                    {% with post.main_image as main_image %}
-                                    {% if main_image %}{% image main_image fill-370x240 %}{% endif %}
-                                    {% endwith %}
-                                </a>
-                            </figure>
-                            <div class="relative -mt-20 mr-8 lg:mr-10">
-                                <div class="inline-flex bg-accent px-2 py-[6px] text-xs font-bold uppercase leading-none text-white">
-                                    {{ post.category }}{{ post.category_id }}
-                                </div>
-                                <div class="bg-white dark:bg-gray-800 p-6">
-                                    <h2 class="mb-4 text-xl font-bold leading-6 lg:tracking-tighter">
-                                        <a href="{% pageurl post %}"
-                                           class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent">
-                                            {{ post.title }}
-                                        </a>
-                                    </h2>
-                                    <div class="text-sm">{{ post.date }}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {% endwith %}
-                        {% endfor %}
-
-
+                <article class="col-span-full sm:col-span-6 lg:col-span-4">
+                    <figure class="group overflow-hidden bg-gray-900"><a href="{% pageurl post %}"><img
+                            class="aspect-[16/9] h-full w-full max-w-full object-cover duration-300 group-hover:scale-110 group-hover:opacity-75"
+                            src="{{post.gallery_images.all.0.image.file.url}}"
+                            alt="{{post.gallery_images.all.0.image.file.url}}"></a></figure>
+                    <div class="pt-5 lg:pt-8">
+                        <div class="mb-2 text-sm font-bold text-gray-900 dark:text-white">{{ post.date }}</div>
+                        <h2 class="mb-4 text-2xl font-bold leading-tight lg:mb-7 lg:text-3xl xl:text-[32px] xl:leading-9">
+                            <a href="{% pageurl post %}"
+                               class="text-gray-900 transition-colors hover:text-accent dark:text-white dark:hover:text-accent">{{ post.title }}</a></h2>
+                        <div class="mb-5.5">{{ post.intro }}</div>
+                        <footer><a
+                                class="text-xs font-bold uppercase text-gray-500 transition-colors hover:text-gray-900 dark:hover:text-white"
+                                href="{% pageurl post %}">Read More...</a></footer>
                     </div>
+                </article>
 
-                </div>
+
+
+
+
+
+<!--                <div class="col-span-full sm:col-span-6 lg:col-span-4">-->
+
+
+<!--                    <figure class="group overflow-hidden bg-gray-900">-->
+<!--                        <a href="{% pageurl post %}">-->
+
+<!--                            {% with post.main_image as main_image %}-->
+<!--                            {% if main_image %}{% image main_image fill-370x240 %}{% endif %}-->
+<!--                            {% endwith %}-->
+<!--                        </a>-->
+<!--                    </figure>-->
+<!--                    <div class="relative -mt-20 mr-8 lg:mr-10">-->
+<!--                        <div class="inline-flex bg-accent px-2 py-[6px] text-xs font-bold uppercase leading-none text-white">-->
+<!--                            {{ post.category }}{{ post.category_id }}-->
+<!--                        </div>-->
+<!--                        <div class="bg-white dark:bg-gray-800 p-6">-->
+<!--                            <h2 class="mb-4 text-xl font-bold leading-6 lg:tracking-tighter">-->
+<!--                                <a href="{% pageurl post %}"-->
+<!--                                   class="text-primary transition-colors hover:text-accent dark:text-white dark:hover:text-accent">-->
+<!--                                    {{ post.title }}-->
+<!--                                </a>-->
+<!--                            </h2>-->
+<!--                            <div class="text-sm">{{ post.date }}</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                {% endwith %}
+                {% endfor %}
+
+
+            </div>
+
+        </div>
     </section>
 
 </main>
