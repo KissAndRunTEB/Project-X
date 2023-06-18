@@ -1,3 +1,5 @@
+import string
+
 from django import forms
 from django.db import models
 
@@ -73,6 +75,35 @@ class BlogIndexPage(Page):
 
         categories = BlogCategory.objects.all()
         context['categories'] = categories
+
+        # start_url_0 = request.build_absolute_uri()
+        # context['current_url'] = start_url_0
+        #
+        # start_url_1 = request.build_absolute_uri()
+        # style_value=1
+        # if f'style={style_value}' not in start_url_1:
+        #     start_url_1 = start_url_1.replace("?style=2&", "?")
+        #     start_url_1 = start_url_1.replace("?style=2", "")
+        #     start_url_1 = start_url_1.replace("&style=2", "")
+        #     if '?' in start_url_1:
+        #         start_url_1 += f'&style={style_value}'
+        #     else:
+        #         start_url_1 += f'?style={style_value}'
+        # context['current_url_to_style1'] = start_url_1
+        #
+        # start_url_2 = request.build_absolute_uri()
+        # style_value=2
+        # if f'style={style_value}' not in start_url_2:
+        #     start_url_2 = start_url_2.replace("?style=1&", "?")
+        #     start_url_2 = start_url_2.replace("?style=1", "")
+        #     start_url_2 = start_url_2.replace("&style=1", "")
+        #     if '?' in start_url_2:
+        #         start_url_2 += f'&style={style_value}'
+        #     else:
+        #         start_url_2 += f'?style={style_value}'
+        # context['current_url_to_style2'] = start_url_2
+
+
         return context
 
 
