@@ -40,3 +40,11 @@ sqlite3 your-sqlite3-database.db .dump > dump.sql
 
 python manage.py dumpdata > data.json
 
+pip install pytube
+
+
+                            {% if post.thumbnail %}
+                            <img class="aspect-[16/9] h-full w-full max-w-full object-cover duration-300 group-hover:scale-110 group-hover:opacity-75"
+                                 src="{{ post.thumbnail }}"
+                                 alt="Thumbnail">
+                            {% endif %}

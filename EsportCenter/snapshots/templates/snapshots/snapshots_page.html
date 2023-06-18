@@ -514,9 +514,15 @@ border-left: 3px solid rgb(255 61 84 / var(--tw-text-opacity));
                     <figure class="group overflow-hidden bg-gray-900">
                         <a href="{% pageurl post %}">
 
-                            {% with post.main_image as main_image %}
-                            {% if main_image %}{% image main_image fill-370x240 %}{% endif %}
-                            {% endwith %}
+                            {% if post.thumbnail %}
+                            <img class="aspect-[16/9] h-full w-full max-w-full object-cover duration-300 group-hover:scale-110 group-hover:opacity-75"
+                                 src="{{ post.thumbnail }}"
+                                 alt="Thumbnail">
+                            {% endif %}
+
+                            <!--                            {% with post.main_image as main_image %}-->
+                            <!--                            {% if main_image %}{% image main_image fill-370x240 %}{% endif %}-->
+                            <!--                            {% endwith %}-->
                         </a>
                     </figure>
                     <div class="relative -mt-20 mr-8 lg:mr-10">

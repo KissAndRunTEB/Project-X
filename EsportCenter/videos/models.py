@@ -3,6 +3,7 @@ from django.db import models
 
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.contrib.taggit import ClusterTaggableManager
+from pytube import YouTube
 from taggit.models import TaggedItemBase
 from wagtail.models import Page, Orderable
 from wagtail.fields import RichTextField
@@ -10,6 +11,15 @@ from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.search import index
 
 from wagtail.snippets.models import register_snippet
+
+
+def get_youtube_thumbnail(video_url):
+    try:
+        yt = YouTube(video_url)
+        thumbnail_url = yt.thumbnail_url
+        return thumbnail_url
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
 
 
 @register_snippet
@@ -74,6 +84,12 @@ class VideosPage(Page):
     tags = ClusterTaggableManager(through=VideosPageTag, blank=True)
     categories = ParentalManyToManyField('videos.VideosCategory', blank=True)
     language = models.CharField(max_length=250, default="English")
+    thumbnail = models.CharField(max_length=500, blank=True)
+
+    def save(self, *args, **kwargs):
+        if self.link:
+            self.thumbnail = get_youtube_thumbnail(self.link)
+        super().save(*args, **kwargs)
 
     def main_image(self):
         gallery_item = self.gallery_images.first()

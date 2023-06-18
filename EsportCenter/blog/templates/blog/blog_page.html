@@ -67,19 +67,21 @@ Blog
                         {% endwith %}
 
                         {% if page.gallery_images.all.count > 1 %}
-                        {% for item in page.gallery_images.all %}
+                            {% for item in page.gallery_images.all %}
                         <div style="float: left; margin: 10px">
                             {% image item.image fill-320x240 %}
                             <p>{{ item.caption }}</p>
                         </div>
-                        {% endfor %}
+                            {% endfor %}
                         {% endif %}
 
 
-                      Writen by: {{post.author}}
-
+                        <br/>
+                      Writen by: {{page.author}}
                     </div>
                 </div>
+
+
 
 
 
