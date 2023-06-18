@@ -124,6 +124,8 @@ class BlogPage(Page):
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
     categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
 
+    author = models.CharField(max_length=255, default="Horpyna")
+
     def main_image(self):
         gallery_item = self.gallery_images.first()
         if gallery_item:
@@ -144,6 +146,7 @@ class BlogPage(Page):
         ], heading="Blog information"),
         FieldPanel('intro'),
         FieldPanel('body'),
+        FieldPanel('author'),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
 

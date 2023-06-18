@@ -29,21 +29,18 @@ Blog
                     <h1 class="pb-1 text-center text-2xl font-bold leading-tight tracking-tighter text-primary dark:text-white md:text-3xl lg:px-8 lg:text-5xl lg:leading-none">
                         {{ page.title }}
                     </h1>
-
+                <figure class="lg:my-10">
+                    <img class="h-auto max-w-full"
+                         src="{{ page.gallery_images.all.0.image.file.url }}"
+                         alt="">
+                </figure>
                 </header>
 
 
-                <figure class="col-span-full mb-8 md:col-start-2 md:col-end-12 md:mb-14">
-                    <a class="group relative block h-full overflow-hidden bg-gray-900" href="#">
-                        <img class="aspect-video w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-75"
-                             src="{% static 'assets/img/yt1/samples/post-img-1.jpg' %}" alt="">
-                        <span class="absolute top-1/2 left-1/2 flex aspect-square h-20 w-20 -translate-x-2/4 -translate-y-2/4 items-center justify-center rounded-full bg-accent">
-                  <svg role="img" class="mr-[-3px] h-[27px] w-[22px] fill-white">
-                    <use xlink:href="{% static 'assets/img/yt1/sprite.svg#play' %}"></use>
-                  </svg>
-                </span>
-                    </a>
-                </figure>
+
+
+                {{ page.gallery_images.all.0.image.caption }}
+
 
                 <div class="col-span-full md:col-start-3 md:col-end-11">
                     <div class="vv-prose">
@@ -69,15 +66,21 @@ Blog
                         {% endif %}
                         {% endwith %}
 
+                        {% if page.gallery_images.all.count > 1 %}
                         {% for item in page.gallery_images.all %}
                         <div style="float: left; margin: 10px">
                             {% image item.image fill-320x240 %}
                             <p>{{ item.caption }}</p>
                         </div>
                         {% endfor %}
+                        {% endif %}
+
+
+                      Writen by: {{post.author}}
 
                     </div>
                 </div>
+
 
 
             </article>
