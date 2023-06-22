@@ -1,11 +1,12 @@
 {% load static wagtailcore_tags wagtailuserbar %}
 {% load wagtailimages_tags %}
+{% load slides_tags %}
 {% load static %}
 <div class="swiper js-vv-hero-swiper h-full w-full">
 
     <div class="swiper-wrapper vv-hero-swiper-wrapper">
 
-        {% for item in slider %}
+        {% for item in slider|sort_by_order %}
 
         {% with item=item.specific %}
 
@@ -17,6 +18,7 @@
 
                         <div class="col-span-full md:col-span-8 md:col-start-3 lg:col-span-10 lg:col-start-2">
                             <div class="px-6 pt-28 text-center md:pt-36 lg:px-0 lg:pt-44 lg:text-left">
+                                <br/><br/>
                                 <div class="mb-3 lg:mb-6 lg:pt-2">
                                     <a class="bg-accent px-3 py-1 text-xs font-bold uppercase leading-snug text-white transition-colors hover:bg-accent/90 lg:text-sm"
                                         href="{% if item.news %}{{ item.news.url }}{% elif item.link %}{{ item.link }}{% endif %}">
@@ -63,7 +65,7 @@
 
                         <div class="col-span-full md:col-span-8 md:col-start-3 lg:col-span-10 lg:col-start-2">
                             <div class="px-6 pt-28 text-center md:pt-36 lg:px-0 lg:pt-44">
-
+                                <br/><br/>
                                 <div class="mb-2 flex flex-wrap justify-center gap-1 text-sm text-white lg:mb-6 lg:pt-2 lg:text-base lg:text-white">
                                     <br/><br/>
                                 </div>
@@ -113,7 +115,7 @@
                                 <div class="mb-8 pr-4 text-sm tracking-tighter text-white lg:mb-12 lg:text-lg lg:leading-8 xl:pr-20">
                                     {{item.thirdtext|richtext}}
                                 </div>
-                                <a href="/"
+                                <a href="{% if item.news %}{{ item.news.url }}{% elif item.link %}{{ item.link }}{% endif %}"
                                    class="relative isolate inline-flex overflow-hidden border-2 bg-transparent py-3 px-4 text-center text-xs font-bold leading-none transition-colors before:absolute before:inset-y-0 before:left-0 before:-z-10 before:block before:w-full before:origin-right before:scale-x-0 before:transition-transform before:duration-300 hover:before:origin-left hover:before:scale-x-100 lg:py-[14px] lg:px-12 lg:text-sm py-3 px-4 lg:py-[14px] lg:px-12 bg-transparent border-2 border-white before:bg-white text-white lg:text-white hover:text-primary">
                                     Read intro!
                                 </a>

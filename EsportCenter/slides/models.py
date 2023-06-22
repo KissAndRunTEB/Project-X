@@ -1,3 +1,5 @@
+import random
+
 from django import forms
 from django.db import models
 
@@ -23,6 +25,8 @@ class SlidesPage(Page):
         ('option3', 'Special'),
     ]
 
+    order = models.IntegerField(default=10)
+
     page_description = "Add new Slide here"
     date = models.DateField("Post date")
 
@@ -40,12 +44,6 @@ class SlidesPage(Page):
         related_name='+'
     )
 
-    # def main_image(self):
-    #     gallery_item = self.gallery_images.first()
-    #     if gallery_item:
-    #         return gallery_item.image
-    #     else:
-    #         return None
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
@@ -54,6 +52,7 @@ class SlidesPage(Page):
 
         FieldPanel('style'),
         FieldPanel('image'),
+        FieldPanel('order'),
         FieldPanel('text'),
         FieldPanel('secondtext'),
         FieldPanel('thirdtext'),
