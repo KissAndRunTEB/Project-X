@@ -1,6 +1,8 @@
 Starting up (add to PyCharm configuration to do it from button)
 python manage.py runserver
 
+source env/bin/activate
+python3 manage.py runserver 0.0.0.0:8002
 
 ===Each change to database model===
 
