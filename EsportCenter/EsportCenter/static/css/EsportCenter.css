@@ -1,3 +1,26 @@
+  .logo-main {
+    width: 260px;
+    height: 150px;
+  }
+
+.switch-button
+{
+    margin-top:1.5rem;
+}
+
+  /* Media query for mobile devices */
+  @media (max-width: 767px) {
+        .logo-main {
+          width: 90px;
+          height: auto;
+        }
+
+        .switch-button
+            {
+            margin-top:0.5rem;
+            }
+  }
+
 .lg\:bg-gradient-radial-hero {
 	background-image: radial-gradient(circle at 70% 50%, #fff9c3a3 11%, transparent 41%), radial-gradient(circle at 68% 50%, rgba(255, 250, 195, .1) 13%, transparent 52%);
 }
