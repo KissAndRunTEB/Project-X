@@ -49,17 +49,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="">{{ item.description|richtext }}
-
-
-
+                            <div class="">
+        {% with item.description|richtext as rich_text %}
+            {% if rich_text|length > 300 %}
+                {{ rich_text|slice:":300"|default:"" }}...
+            {% else %}
+                {{ rich_text }}
+            {% endif %}
+        {% endwith %}
                             </div>
-
-
-
-
                         </div>
                         <div class="flex items-center justify-center basis-full md:basis-auto p-6 sm:p-7 md:p-8 lg:p-10 xl:p-12">
                             <a href="{% pageurl item %}"
-                               class="inline-flex text-center font-bold leading-none transition-colors uppercase justify-center gap-x-3 py-3 px-4 md:py-[13px] lg:px-7 text-sm text-gray-625 ring-1 ring-inset ring-gray-625 bg-transparent hover:bg-primary hover:text-white hover:ring-primary">Read more</a></div>
+                               class="inline-flex text-center font-bold leading-none transition-colors uppercase justify-center gap-x-3 py-3 px-4 md:py-[13px] lg:px-7 text-sm text-gray-625 ring-1 ring-inset ring-gray-625 bg-transparent hover:bg-primary hover:text-white hover:ring-primary">Read more
+                            </a>
+                        </div>
                     </div>
