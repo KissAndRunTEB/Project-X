@@ -50,3 +50,5 @@ pip install pytube
                                  src="{{ post.thumbnail }}"
                                  alt="Thumbnail">
                             {% endif %}
+
+#installation on server

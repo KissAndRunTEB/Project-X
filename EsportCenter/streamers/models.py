@@ -1,3 +1,5 @@
+import random
+
 from django import forms
 from django.db import models
 
@@ -74,6 +76,7 @@ class StreamersPage(Page):
 
         from schedules.models import SchedulesPage
         schedule = SchedulesPage.objects.first()  # Retrieve the RelatedClass object
+
         context['schedule'] = schedule
 
         return context
@@ -86,10 +89,18 @@ class StreamersIndexPage(Page):
         context = super().get_context(request)
 
         streamerspages = self.get_children().live().order_by('-first_published_at')
-        context['streamerspages'] = streamerspages
+
+        # Convert queryset to a list
+        streamers_list = list(streamerspages)
+
+        # Shuffle the list randomly
+        random.shuffle(streamers_list)
+
+        context['streamerspages'] = streamers_list
 
         from schedules.models import SchedulesPage
         schedule = SchedulesPage.objects.first()  # Retrieve the RelatedClass object
+
         context['schedule'] = schedule
 
         return context
