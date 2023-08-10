@@ -52,3 +52,15 @@ pip install pytube
                             {% endif %}
 
 #installation on server
+
+
+
+npm install tailwindcss postcss autoprefixer
+
+npx tailwindcss init
+
+npm install @tailwindcss/typography
+npm install @tailwindcss/forms
+
+npx tailwindcss build -o EsportCenter/EsportCenter/static/css/tailwind.css
+npx tailwindcss build -o EsportCenter/EsportCenter/static/css/tailwind.css -w
