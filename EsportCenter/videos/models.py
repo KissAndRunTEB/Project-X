@@ -10,6 +10,7 @@ from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.search import index
 
+
 from wagtail.snippets.models import register_snippet
 
 

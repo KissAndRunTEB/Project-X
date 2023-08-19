@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}antialiased tracking-tight font-base text-gray-500 text-base h-full bg-white dark:bg-gray-900 overflow-x-hidden{% endblock %}
+{% block name %}
+Games
+{% endblock%}
+
+{% block breadcrumb %}
+Games
+{% endblock%}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <article>
+                    <h1>{{ page.title }}</h1>
+                    <div class="rich-text">
+                        {{ page.books_list|richtext }}
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">List of Books</div>
+                    <div class="panel-body">
+                        <ul>
+                                            {% for item in books_list %}
+
+                                                           <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

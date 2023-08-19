@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "games",
     "snapshots",
     "decks",
+    "automated",
     "search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",

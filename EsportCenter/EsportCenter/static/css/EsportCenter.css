@@ -8,6 +8,12 @@
     margin-top:1.5rem;
 }
 
+
+
+a.relative.inline-flex.items-center.gap-x-2.leading-10:hover {
+    color: white; /* Change to the desired hover color */
+}
+
   /* Media query for mobile devices */
   @media (max-width: 767px) {
         .logo-main {
@@ -24,3 +30,5 @@
 .lg\:bg-gradient-radial-hero {
 	background-image: radial-gradient(circle at 70% 50%, #fff9c3a3 11%, transparent 41%), radial-gradient(circle at 68% 50%, rgba(255, 250, 195, .1) 13%, transparent 52%);
 }
+
+

@@ -64,3 +64,6 @@ npm install @tailwindcss/forms
 
 npx tailwindcss build -o EsportCenter/EsportCenter/static/css/tailwind.css
 npx tailwindcss build -o EsportCenter/EsportCenter/static/css/tailwind.css -w
+
+
+pip install wagtail requests beautifulsoup4

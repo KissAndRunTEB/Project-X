@@ -91,5 +91,30 @@ Blog
 
 </main>
 
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const paragraphs = document.querySelectorAll("p");
+
+        paragraphs.forEach(paragraph => {
+            const modifiedHTML = paragraph.innerHTML.replace(/<a href="([^"]*\.mp4)">([^<]*)<\/a>/g, (match, src, content) => {
+                const videoTag = `<video src="${src}" controls></video>`;
+                return videoTag;
+            });
+
+            paragraph.innerHTML = modifiedHTML;
+        });
+    });
+
+
+                document.addEventListener("DOMContentLoaded", function() {
+            const iframes = document.querySelectorAll("iframe");
+
+            iframes.forEach(iframe => {
+                iframe.setAttribute("width", "640");
+                iframe.setAttribute("height", "360");
+            });
+        });
+    </script>
 
 {% endblock %}
