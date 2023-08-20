@@ -55,7 +55,9 @@ class EventsIndexPage(Page):
 
         category_obj = EventsCategory.objects.get(name="Featured")
 
-        eventspages = self.get_children().live().order_by('-first_published_at')
+        eventspages = self.get_children().live().order_by('first_published_at')
+        # - sign, gives opposite direction
+        #eventspages = self.get_children().live().order_by('-first_published_at')
         context['eventspages'] = eventspages
 
 
