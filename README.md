@@ -1,69 +1,79 @@
-Starting up (add to PyCharm configuration to do it from button)
-python manage.py runserver
 
-source env/bin/activate
-python3 manage.py runserver 0.0.0.0:8002
+## Description
 
-===Each change to database model===
+Information about this project:
+Wagtail website (Django + Python). Uses Tailwind.
 
-# Creates the migrations file.
-python manage.py makemigrations
-# Executes the migrations and updates the database with your model changes.
-python manage.py migrate
+Running here: https://bloodrush.gg
 
+## Features
 
-===Creating new pages (called apps in Wagtail)===
-
-# To do so, run 
-python manage.py startapp HERENAMEOFNEWPAGE
-# for example
-python manage.py startapp newpage
-# to create a new page
-
-Add the new page to INSTALLED_APPS in EsportCenter/settings/base.py.
-
-In some cases it is neccessery to add page of admin panel too.
-
-To update libraries:
-pip install -r requirements.txt     
+- News
+- Streams/streamers
+- Events & premiers
+- About Us
+- Sliders
+- Countdown
+- and more
 
 
-BUG FIXES after updating template styles
-Fix file common.js in static/assets/js/common.js so Lightbox section look like this:
-    css: 'static/assets/vendors/common/glightbox/css/plyr.css',
-    js: 'static/assets/vendors/common/glightbox/js/plyr.js',
+## Screenshots
+![Slider](docs/img/1.png)
+![Podcast](docs/img/2.png)
+![Banners](docs/img/3.png)
+![Countdown](docs/img/4.png)
+
+## Roadmap
+
+- Additional browser support
+
+- Add more integrations
 
 
-To connect database need install this library:
-pip install psycopg2-binary
+## Deployment and running
 
-Migration sqlittle -> postersql
-sqlite3 your-sqlite3-database.db .dump > dump.sql
+Clone the project.
 
-python manage.py dumpdata > data.json
+Go to the project directory and activate environment
 
-pip install pytube
+```bash
+  cd EsportCenter
+  source env/bin/activate
+```
+
+Install dependencies
+
+```bash
+  pip install -r requirements.txt
+```
+
+Creates the migrations file.
+```bash
+  python manage.py makemigrations
+```
+
+Executes the migrations and updates the database with your model changes.
+```bash
+  python manage.py migrate
+```
+
+Start the server
+
+```bash
+  python manage.py runserver
+```
 
 
-                            {% if post.thumbnail %}
-                            <img class="aspect-[16/9] h-full w-full max-w-full object-cover duration-300 group-hover:scale-110 group-hover:opacity-75"
-                                 src="{{ post.thumbnail }}"
-                                 alt="Thumbnail">
-                            {% endif %}
+Wagtail update
 
-#installation on server
+```bash
+  pip install wagtail==new_version_number
+```
 
 
 
-npm install tailwindcss postcss autoprefixer
+## Useful links
 
-npx tailwindcss init
-
-npm install @tailwindcss/typography
-npm install @tailwindcss/forms
-
-npx tailwindcss build -o EsportCenter/EsportCenter/static/css/tailwind.css
-npx tailwindcss build -o EsportCenter/EsportCenter/static/css/tailwind.css -w
+ - [Wagtail](https://wagtail.org/)
 
 
-pip install wagtail requests beautifulsoup4

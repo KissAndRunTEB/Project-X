@@ -4,6 +4,13 @@ from django.template.response import TemplateResponse
 from wagtail.models import Page
 from wagtail.search.models import Query
 
+from django.shortcuts import render
+
+
+def documentation(request):
+    # You can add context data if needed
+    return render(request, '/docs/_build/html/index.html')
+
 
 def search(request):
     search_query = request.GET.get("query", None)
