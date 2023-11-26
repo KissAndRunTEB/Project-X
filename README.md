@@ -1,8 +1,9 @@
 
 ## Description
 
-Information about this project:
-Wagtail website (Django + Python). Uses Tailwind.
+Bloodrush.com website (Wagtail + Django + Python). Uses Tailwind.
+News page about gaming, Cookie Break podcast, Team Elder Blood streamers, events & more.
+
 
 Running here: https://bloodrush.gg
 
@@ -18,16 +19,25 @@ Running here: https://bloodrush.gg
 
 
 ## Screenshots
+
+Main slider (news or custom content)
 ![Slider](docs/img/1.png)
+
+Podcast promo
 ![Podcast](docs/img/2.png)
+
+Banners
 ![Banners](docs/img/3.png)
+
+Countdown till next podcast
 ![Countdown](docs/img/4.png)
 
 ## Roadmap
 
-- Additional browser support
-
-- Add more integrations
+- Filling with new content
+- Linking podcast episodes
+- Adding news series
+- Testing
 
 
 ## Deployment and running
@@ -73,7 +83,7 @@ Wagtail update
 
 
 ## Useful links
-
+ - [Bloodrush](https://bloodrush.gg)
  - [Wagtail](https://wagtail.org/)
 
 
